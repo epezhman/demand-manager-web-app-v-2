@@ -44,7 +44,7 @@ export class CommandScheduleSumComponent {
                 var oneHourDuration = '';
                 var dayOfWeek = '';
                 scheduleDevices.forEach((scheduleDevice) => {
-                    if (scheduleDevice.hasOwnProperty(key)) {
+                    if (scheduleDevice.hasOwnProperty(key) && scheduleDevice[key]) {
                         setDevices += scheduleDevice[key]['dr_running_bool'] ? 1 : 0;
                         oneHourDuration = scheduleDevice[key]['one_hour_duration_beginning'];
                         dayOfWeek = scheduleDevice[key]['day_of_week'];

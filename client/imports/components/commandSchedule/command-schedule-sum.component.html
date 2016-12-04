@@ -17,7 +17,7 @@
             <tbody>
             <tr *ngFor="let hour of hours">
                 <td *ngFor="let day of days">
-                    <div class="schedule-time-slot"
+                    <div class="schedule-time-slot" *ngIf="schedules[day + '-' + hour]"
                          [ngClass]="{'schedule-time-set': schedules[day + '-' + hour]['set_devices_count'] === schedules[day + '-' + hour]['devices_count']
                          ,'schedule-time-unset': schedules[day + '-' + hour]['set_devices_count'] === 0
                          ,'schedule-time-half-set': schedules[day + '-' + hour]['set_devices_count'] != 0 && schedules[day + '-' + hour]['set_devices_count'] < schedules[day + '-' + hour]['devices_count']}"

@@ -17,7 +17,7 @@
             <tbody>
             <tr *ngFor="let hour of hours">
                 <td *ngFor="let day of days">
-                    <div class="schedule-time-slot"
+                    <div class="schedule-time-slot" *ngIf="schedules[day + '-' + hour]"
                          [ngClass]="{'schedule-time-set': schedules[day + '-' + hour]['dr_running_bool'] ,'schedule-time-unset': !schedules[day + '-' + hour]['dr_running_bool']  }"
                          (click)="toggleSchedule(schedules[day + '-' + hour])">
                           {{schedules[day + '-' + hour]['one_hour_duration_beginning']|timeAddZeros}}

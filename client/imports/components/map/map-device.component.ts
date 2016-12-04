@@ -25,7 +25,11 @@ export class MapDeviceComponent {
     set mapDevice(mapDevice: DeviceDetail) {
         if(mapDevice)
         {
-            this.locationsData = _.values(mapDevice);
+            let tempData = _.values(mapDevice);
+            if(tempData[0])
+            {
+                this.locationsData = tempData
+            }
         }
     }
 

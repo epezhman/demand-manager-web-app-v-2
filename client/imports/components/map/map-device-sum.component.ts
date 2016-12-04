@@ -2,7 +2,6 @@ import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
 import {DeviceDetail} from "../../../../both/interfaces/device.interface";
 import * as _ from "lodash";
 import "geolib";
-
 //noinspection TypeScriptCheckImport
 import template from "./map-device-sum.component.html";
 
@@ -25,8 +24,11 @@ export class MapDevicesSumComponent {
     @Input()
     set mapDevices(mapDevices: Array<DeviceDetail>) {
         if (mapDevices) {
-            _.forEach(mapDevices, (mapDevice, key)=> {
-                this.locationsData = _.concat(this.locationsData, _.values(mapDevice));
+            _.forEach(mapDevices, (mapDevice, key) => {
+                let tempData = _.values(mapDevice);
+                if (tempData[0]) {
+                    this.locationsData = _.concat(this.locationsData, tempData);
+                }
             });
         }
     }
