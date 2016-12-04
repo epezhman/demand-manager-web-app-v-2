@@ -1,6 +1,7 @@
 {
-  "name": "socially",
+  "name": "demand-manager-web-app",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --driver-package practicalmeteor:mocha",
