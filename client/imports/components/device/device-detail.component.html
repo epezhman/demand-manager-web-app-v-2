@@ -1,0 +1,153 @@
+<div class="row" *ngIf="getDevicesCount()">
+    <div class="col-sm-4">
+        <h3>Devices' Detail</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="btn-group pull-right" *ngIf="getDevicesCount()" style="padding-bottom: 10px;">
+            <button type="button" class="btn btn-primary" (click)="toggleAll(true)">Show All</button>
+            <button type="button" class="btn btn-default" (click)="toggleAll(false)">Hide All</button>
+            <button type="button" class="btn btn-success" (click)="sumAll()">Sum All</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="devicesToSumPower.length">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title"> Average Selected Devices </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>{{devicesToSumPower.length}} Devices Selected </h3>
+                </div>
+                <div class="col-sm-6">
+                    <div class="btn-group pull-right btn-group-sm">
+                        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                data-target="#collapse-dr-schedules" aria-expanded="false"><i
+                                class="fa fa-calendar-check-o fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" (click)="clearSum()"><i
+                                class="fa fa-eraser fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                data-target="#collapse-power-charts" aria-expanded="false"><i
+                                class="fa fa-area-chart fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                data-target="#collapse-maps" aria-expanded="false"><i
+                                class="fa fa-map fa-fw"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-dr-schedules">
+                        <hr>
+                        <h4> DM Schedule </h4>
+                        <command-schedule-devices-sum [scheduleDevices]="devicesToSumSchedule"
+                                                      [devicesId]="devicesIdToSumSchedule"></command-schedule-devices-sum>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse in" id="collapse-power-charts">
+                        <hr>
+                        <h4> Powers Profile </h4>
+                        <power-chart-device-sum [chartDevices]="devicesToSumPower"></power-chart-device-sum>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse in" id="collapse-maps">
+                        <hr>
+                        <h4> Locations Profile </h4>
+                        <map-device-sum [mapDevices]="devicesToSumLocation"></map-device-sum>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let device of getDeviceObjectsAsList();let i = index">
+    <div class="panel panel-default">
+        <div class="panel-heading"
+             (click)="toggleView(device)"
+             style="cursor: pointer;">
+            <h3 class="panel-title">Device ID: {{device['key']}}</h3>
+        </div>
+
+        <div class="panel-body" *ngIf="isVisiblePanel(device)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4> Device Info </h4>
+                    <dl class="dl-horizontal">
+                        <dt>Last Online</dt>
+                        <dd *ngIf="device['activity']">{{device['activity']['last-online']| date:'medium'}}</dd>
+                        <dt>First Installed</dt>
+                        <dd *ngIf="device['info']">{{device['info']['registered-time']| date:'medium'}}</dd>
+                        <dt>OS</dt>
+                        <dd *ngIf="device['hardware'] && device['hardware']['os-info']">{{device['hardware']['os-info']['os-platform']}}
+                            {{device['hardware']['os-info']['os-release']}}</dd>
+                        <dt>Current Version</dt>
+                        <dd *ngIf="device['info']">{{device['info']['current-version']}}</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-6">
+                    <div class="btn-group pull-right btn-group-sm">
+                        <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-dr-schedule-' + i" aria-expanded="false"><i
+                                class="fa fa-calendar-check-o fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-hardware-' + i" aria-expanded="false"><i
+                                class="fa fa-cogs fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-power-chart-' + i" aria-expanded="false"><i
+                                class="fa fa-area-chart fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-maps-' + i" aria-expanded="false"><i
+                                class="fa fa-map fa-fw"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-dr-schedule-{{i}}">
+                        <hr>
+                        <h4> DM Schedule </h4>
+                        <command-schedule-device [scheduleDevice]="device['schedule']"
+                                                 [deviceId]="device['key']"></command-schedule-device>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-hardware-{{i}}">
+                        <hr>
+                        <h4> Hardware Info </h4>
+                        <pre>{{device['hardware']|json}}</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-power-chart-{{i}}">
+                        <hr>
+                        <h4> Power Profile </h4>
+                        <power-chart-device [chartDevice]="device['power']"></power-chart-device>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse in" id="collapse-maps-{{i}}">
+                        <hr>
+                        <h4> Location Profile </h4>
+                        <map-device [mapDevice]="device['location']"></map-device>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

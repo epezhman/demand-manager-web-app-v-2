@@ -1,0 +1,19 @@
+<div class="welcome" style="min-height: 900px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="/images/power-512x512.png" alt="">
+                <div class="intro-text">
+                    <span class="name">Demand Manager Administrator</span>
+                    <hr class="star-light">
+
+                    <span class="skills" *ngIf="!user">Please Log In to Continue</span>
+                    <div class="alert alert-warning" *ngIf="!isAdmin()">You don't have Admin privileges. in case you need admin authorizations please
+                        <a href="mailto:epezhman@gmail.com?Subject=Demand%20Manager%20Admin" target="_top">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

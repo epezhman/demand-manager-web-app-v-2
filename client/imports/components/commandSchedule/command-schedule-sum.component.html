@@ -1,0 +1,34 @@
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <table *ngIf="schedules" class="schedule-times">
+            <thead>
+            <tr>
+                <td>Mon</td>
+                <td>Tue</td>
+                <td>Wed</td>
+                <td>Thu</td>
+                <td>Fri</td>
+                <td>Sat</td>
+                <td>Sun</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hour of hours">
+                <td *ngFor="let day of days">
+                    <div class="schedule-time-slot"
+                         [ngClass]="{'schedule-time-set': schedules[day + '-' + hour]['set_devices_count'] === schedules[day + '-' + hour]['devices_count']
+                         ,'schedule-time-unset': schedules[day + '-' + hour]['set_devices_count'] === 0
+                         ,'schedule-time-half-set': schedules[day + '-' + hour]['set_devices_count'] != 0 && schedules[day + '-' + hour]['set_devices_count'] < schedules[day + '-' + hour]['devices_count']}"
+                         (click)="toggleSchedule(schedules[day + '-' + hour])">
+                        {{schedules[day + '-' + hour]['one_hour_duration_beginning']|timeAddZeros}}
+                        / {{schedules[day + '-' + hour]['set_devices_count']}} D
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

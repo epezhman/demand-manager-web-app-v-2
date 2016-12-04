@@ -1,0 +1,63 @@
+<div style="height: 5px">
+    <div [hidden]="!isLoading" class="loader-line"></div>
+</div>
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Registered Users of the Website</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Users
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Email</th>
+                                <th style="width: 100px;">Is Admin</th>
+                                <th style="width: 150px;">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr *ngFor="let user of users | async; let i = index">
+                                <td>{{i + 1}}</td>
+                                <td>{{ user.emails[0].address}}</td>
+                                <td>
+                                    <span *ngIf="isAdmin(user)" class="label label-success">Yes</span>
+                                    <span *ngIf="!isAdmin(user)" class="label label-warning">No</span>
+                                </td>
+                                <td>
+                                    <button *ngIf="!isAdmin(user) && isAllowedToChangeAdmin()"
+                                            class="btn btn-primary btn-group-sm"
+                                            (click)="addAdmin(user)">Add to Admin
+                                    </button>
+                                    <button *ngIf="isAdmin(user)&& isAllowedToChangeAdmin()"
+                                            class="btn btn-warning btn-group-sm"
+                                            (click)="removeAdmin(user)">
+                                        Remove from Admin
+                                    </button>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

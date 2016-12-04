@@ -1,0 +1,38 @@
+<div style="height: 5px">
+    <div [hidden]="!isLoading" class="loader-line"></div>
+</div>
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Firebase Management</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Remove Device
+                </div>
+
+                <div class="panel-body">
+
+
+                    <div class="form-group">
+                        <label for="removeDeviceId">Device Id</label>
+                        <input type="text" class="form-control" id="removeDeviceId" placeholder="Device Id"
+                               [(ngModel)]="removeDeviceId">
+                    </div>
+
+                    <button (click)="removeDevice()" class="btn btn-danger">Remove</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

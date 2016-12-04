@@ -1,0 +1,74 @@
+<div style="height: 5px">
+    <div [hidden]="!isLoading" class="loader-line"></div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Registered Devices</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Devices
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <legend>Filter</legend>
+                        <div class="form-inline search-form">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="latitudeKeyFilter"
+                                       placeholder="Latitude Filter"
+                                       [(ngModel)]="latCircle">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="longitudeKeyFilter"
+                                       placeholder="Longitude Filter"
+                                       [(ngModel)]="lngCircle">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="radiusKeyFilter" min="0"
+                                       placeholder="Radius (m) Filter"
+                                       [(ngModel)]="radiusCircle">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <sebm-google-map [latitude]="latMunich" [longitude]="lngMunich" [zoom]="zoomMunich">
+                        <sebm-google-map-circle
+                                [latitude]="latCircle"
+                                [longitude]="lngCircle"
+                                [radius]="radiusCircle"
+                                [editable]="true"
+                                [circleDraggable]="true"
+                                [fillColor]="colorCircle"
+                                [strokeColor]="strokeColorCircle"
+                                (radiusChange)="radiusChange($event)"
+                                (centerChange)="centerChange($event)"
+                                (dragEnd)="dragEnd()">
+                        </sebm-google-map-circle>
+                        <sebm-google-map-marker
+                                *ngFor="let device of devices"
+                                (markerClick)="toggleDeviceView(device.$key)"
+                                [latitude]="device.l[0]"
+                                [longitude]="device.l[1]"
+                                [title]="device.$key"
+                                [iconUrl]="onlineStatus(device)">
+                            <sebm-google-map-info-window>
+                                <span class="primary-font"><i class="fa fa-laptop"></i> {{device.$key}}</span>
+                                <br>
+                                <small>
+                                    <i class="fa fa-location-arrow"></i> {{ device.l[0]}} - {{ device.l[1]}}</small>
+                            </sebm-google-map-info-window>
+                        </sebm-google-map-marker>
+                    </sebm-google-map>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <device-detail [inputDevices]="selectedDevices"
+                           (isLoading)="loadingDeviceDetail($event)"></device-detail>
+        </div>
+    </div>
+</div>
