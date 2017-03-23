@@ -1,8 +1,7 @@
-import {Component, Input, Output, EventEmitter, DoCheck} from "@angular/core";
+import {Component, DoCheck, EventEmitter, Input, Output} from "@angular/core";
 import {AngularFire} from "angularfire2";
 import * as _ from "lodash";
 import {DeviceDetail} from "../../../../both/interfaces/device.interface";
-
 //noinspection TypeScriptCheckImport
 import template from "./device-detail.component.html";
 
@@ -39,11 +38,15 @@ export class DeviceDetailComponent implements DoCheck {
     devicesHardwareObserver = {};
     devicesHardwareSubscription = {};
 
+    devicesSettingsObserver = {};
+    devicesSettingSubscription = {};
+
     devices = {};
     devicesToSumPower = [];
     devicesToSumLocation = [];
     devicesToSumSchedule = [];
     devicesIdToSumSchedule = [];
+    devicesIdToSumSettings = [];
 
 
     constructor(private af: AngularFire) {
@@ -73,7 +76,7 @@ export class DeviceDetailComponent implements DoCheck {
     }
 
     checkIfLoadingShouldBeStopped() {
-        if (_.every(_.values(this.loadingObserver), (v)=> !v))
+        if (_.every(_.values(this.loadingObserver), (v) => !v))
             this.isLoading.emit(false);
     }
 
@@ -178,16 +181,16 @@ export class DeviceDetailComponent implements DoCheck {
 
     sumAll(): void {
         this.devicesToSumPower = [];
-        _.forEach(this.devices, (profile, key)=> {
+        _.forEach(this.devices, (profile, key) => {
             this.devicesToSumPower.push(profile['power']);
         });
         this.devicesToSumLocation = [];
-        _.forEach(this.devices, (profile, key)=> {
+        _.forEach(this.devices, (profile, key) => {
             this.devicesToSumLocation.push(profile['location']);
         });
         this.devicesToSumSchedule = [];
         this.devicesIdToSumSchedule = [];
-        _.forEach(this.devices, (profile, key)=> {
+        _.forEach(this.devices, (profile, key) => {
             this.devicesToSumSchedule.push(profile['schedule']);
             this.devicesIdToSumSchedule.push(profile['key']);
         });
