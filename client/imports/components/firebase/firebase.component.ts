@@ -80,14 +80,27 @@ export class FirebaseComponent {
                         onlineObservable.remove().then(() => {
                             cb(null);
                         });
-                    }, (cb) => {
+                    },
+                    (cb) => {
                         const onlineObservable = this.af.database.object(`/power-cluster/${this.removeDeviceId}`);
                         onlineObservable.remove().then(() => {
                             cb(null);
                         });
-                    }
-                    , (cb) => {
+                    },
+                    (cb) => {
                         const onlineObservable = this.af.database.object(`/schedule/${this.removeDeviceId}`);
+                        onlineObservable.remove().then(() => {
+                            cb(null);
+                        });
+                    },
+                    (cb) => {
+                        const onlineObservable = this.af.database.object(`/settings/${this.removeDeviceId}`);
+                        onlineObservable.remove().then(() => {
+                            cb(null);
+                        });
+                    },
+                    (cb) => {
+                        const onlineObservable = this.af.database.object(`/logging/${this.removeDeviceId}`);
                         onlineObservable.remove().then(() => {
                             cb(null);
                         });

@@ -29,6 +29,9 @@
                         <button type="button" class="btn btn-default" (click)="clearSum()"><i
                                 class="fa fa-eraser fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
+                                data-target="#collapse-settings" aria-expanded="false"><i
+                                class="fa fa-sliders fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
                                 data-target="#collapse-power-charts" aria-expanded="false"><i
                                 class="fa fa-area-chart fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
@@ -44,6 +47,16 @@
                         <h4> DM Schedule </h4>
                         <command-schedule-devices-sum [scheduleDevices]="devicesToSumSchedule"
                                                       [devicesId]="devicesIdToSumSchedule"></command-schedule-devices-sum>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-settings">
+                        <hr>
+                        <h4> Devices Settings </h4>
+                        <settings-devices-sum
+                                [settingDevicesId]="devicesIdToSumSchedule"></settings-devices-sum>
                     </div>
                 </div>
             </div>
@@ -101,7 +114,10 @@
                                 class="fa fa-calendar-check-o fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
                                 [attr.data-target]="'#collapse-hardware-' + i" aria-expanded="false"><i
-                                class="fa fa-cogs fa-fw"></i></button>
+                                class="fa fa-info fa-fw"></i></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-settings-' + i" aria-expanded="false"><i
+                                class="fa fa-sliders fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
                                 [attr.data-target]="'#collapse-power-chart-' + i" aria-expanded="false"><i
                                 class="fa fa-area-chart fa-fw"></i></button>
@@ -118,6 +134,16 @@
                         <h4> DM Schedule </h4>
                         <command-schedule-device [scheduleDevice]="device['schedule']"
                                                  [deviceId]="device['key']"></command-schedule-device>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse" id="collapse-settings-{{i}}">
+                        <hr>
+                        <h4> Device Setting </h4>
+                        <device-setting [settingDevice]="device['settings']"
+                                        [deviceId]="device['key']"></device-setting>
                     </div>
                 </div>
             </div>

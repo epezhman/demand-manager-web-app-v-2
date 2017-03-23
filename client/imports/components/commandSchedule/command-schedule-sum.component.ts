@@ -84,9 +84,9 @@ export class CommandScheduleSumComponent {
 
         }, (err) => {
             if (err) {
-                this.notif.success(
+                this.notif.error(
                     'Error',
-                    'Something went wront, try again please.'
+                    'Something went wrong, try again please.'
                 );
             } else {
                 this.notif.success(

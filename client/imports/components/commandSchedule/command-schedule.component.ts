@@ -53,9 +53,9 @@ export class CommandScheduleComponent {
                 'Schedule Set.'
             );
         }).catch((err) => {
-            this.notif.success(
+            this.notif.error(
                 'Error',
-                'Something went wront, try again please.'
+                'Something went wrong, try again please.'
             );
         });
     }

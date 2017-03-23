@@ -80,7 +80,7 @@ export class DeviceDetailComponent implements DoCheck {
             this.isLoading.emit(false);
     }
 
-    initiateLoading(newDevice: string) {
+    initiateLoading(newDevice) {
         this.loadingObserver[newDevice] = true;
         this.isLoading.emit(true);
         this.devices[newDevice] = {};
@@ -116,15 +116,21 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesHardwareSubscription[newDevice] = this.devicesHardwareObserver[newDevice].subscribe((deviceData) => {
             this.devices[newDevice]['hardware'] = deviceData;
         });
+
+        this.devicesSettingsObserver[newDevice] = this.af.database.object('/settings/' + newDevice);
+        this.devicesSettingSubscription[newDevice] = this.devicesSettingsObserver[newDevice].subscribe((deviceData) => {
+            this.devices[newDevice]['settings'] = deviceData;
+        });
     }
 
-    removeDeviceFromList(oldDevice: string) {
+    removeDeviceFromList(oldDevice) {
         delete this.devicesPowerObserver[oldDevice];
         delete this.devicesLocationObserver[oldDevice];
         delete this.devicesInfoObserver[oldDevice];
         delete this.devicesActivityObserver[oldDevice];
         delete this.devicesScheduleObserver[oldDevice];
         delete this.devicesHardwareObserver[oldDevice];
+        delete this.devicesSettingsObserver[oldDevice];
 
         delete this.devices[oldDevice];
         delete this.loadingObserver[oldDevice];
@@ -146,6 +152,9 @@ export class DeviceDetailComponent implements DoCheck {
 
         this.devicesHardwareSubscription[oldDevice].unsubscribe();
         delete this.devicesHardwareSubscription[oldDevice];
+
+        this.devicesSettingSubscription[oldDevice].unsubscribe();
+        delete this.devicesSettingSubscription[oldDevice];
 
         this.checkIfLoadingShouldBeStopped();
     }
@@ -194,6 +203,11 @@ export class DeviceDetailComponent implements DoCheck {
             this.devicesToSumSchedule.push(profile['schedule']);
             this.devicesIdToSumSchedule.push(profile['key']);
         });
+        this.devicesIdToSumSettings = [];
+        this.devicesIdToSumSettings = [];
+        _.forEach(this.devices, (profile, key) => {
+            this.devicesIdToSumSettings.push(profile['key']);
+        });
     }
 
     clearSum(): void {
@@ -201,6 +215,7 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesToSumLocation = [];
         this.devicesToSumSchedule = [];
         this.devicesIdToSumSchedule = [];
+        this.devicesIdToSumSettings = [];
     }
 
 }

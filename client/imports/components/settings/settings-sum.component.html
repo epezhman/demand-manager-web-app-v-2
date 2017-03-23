@@ -1,0 +1,28 @@
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+<h3> Change setting for all selected devices at once</h3>
+
+<form class="form-horizontal" *ngIf="settingDevicesId">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" [(ngModel)]="logging" name="enable-logging"> Enable Logging
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changeLogging()">Submit Logging</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Power Model</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" placeholder="Power Model" name="power-model"
+                   [(ngModel)]="power_model">
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerModel()">Submit Power Model</button>
+        </div>
+    </div>
+</form>
