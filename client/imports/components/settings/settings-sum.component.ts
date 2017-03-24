@@ -20,18 +20,19 @@ export class SettingSumComponent {
 
     logging: boolean = false;
     power_model: string = '';
+    power_monitor_interval: number = 1000;
 
     notifOptions = {
         timeOut: 1000,
         position: ["bottom", "left"]
     };
 
-    constructor(private af: AngularFire, private notif: NotificationsService,) {
-
+    constructor(private af: AngularFire, private notif: NotificationsService) {
     }
 
     changeLogging() {
         each(this.settingDevicesId, (deviceId, cb) => {
+            console.log(this.af);
             const settingsObservable = this.af.database.object(`/settings/${deviceId}/`);
             settingsObservable.update({
                 'logging': this.logging
@@ -48,7 +49,7 @@ export class SettingSumComponent {
             } else {
                 this.notif.success(
                     'Success',
-                    'Logging Changed.'
+                    'Power Model Changed.'
                 );
             }
         });
@@ -76,6 +77,29 @@ export class SettingSumComponent {
                 );
             }
         });
+    }
 
+    changePowerMonitorInterval() {
+        each(this.settingDevicesId, (deviceId, cb) => {
+            const settingsObservable = this.af.database.object(`/settings/${deviceId}/`);
+            settingsObservable.update({
+                'power-monitor-interval': this.power_monitor_interval
+            }).then(() => {
+                cb();
+            })
+
+        }, (err) => {
+            if (err) {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            } else {
+                this.notif.success(
+                    'Success',
+                    'Power Monitor Interval Changed.'
+                );
+            }
+        });
     }
 }

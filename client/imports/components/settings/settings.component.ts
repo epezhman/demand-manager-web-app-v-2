@@ -22,8 +22,7 @@ export class SettingComponent {
         position: ["bottom", "left"]
     };
 
-    constructor(private af: AngularFire, private notif: NotificationsService,) {
-
+    constructor(private af: AngularFire, private notif: NotificationsService) {
     }
 
     @Input()
@@ -34,16 +33,20 @@ export class SettingComponent {
     }
 
     changeSetting() {
+
         const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
         settingsObservable.update({
             'logging': this.settings['logging'],
             'power-model': this.settings['power-model'],
+            'power-monitor-interval': this.settings['power-monitor-interval']
         }).then(() => {
+            console.log(this.notif);
             this.notif.success(
                 'Success',
                 'Settings Changed'
             );
         }).catch((err) => {
+            console.log(this.notif);
             this.notif.error(
                 'Error',
                 'Something went wrong, try again please.'

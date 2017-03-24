@@ -1,4 +1,4 @@
-import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import "chart";
 import * as _ from "lodash";
 //noinspection TypeScriptCheckImport
@@ -36,7 +36,7 @@ export class PowerChartDeviceSumComponent {
                 var tempVoltage = 0;
 
                 chartDevices.forEach((chartDevice) => {
-                    if (chartDevice.hasOwnProperty(key)) {
+                    if (chartDevice && chartDevice['$value'] && chartDevice.hasOwnProperty(key)) {
                         tempACConnected += chartDevice[key]['ac_connected_prob_percent'];
                         tempAppRunning += chartDevice[key]['app_running_prob_percent'];
                         tempComputerRunning += chartDevice[key]['computer_running_prob_percent'];

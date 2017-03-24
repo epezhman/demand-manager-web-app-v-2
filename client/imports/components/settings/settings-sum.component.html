@@ -25,4 +25,17 @@
             <button type="submit" class="btn btn-default btn-sm" (click)="changePowerModel()">Submit Power Model</button>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Power Model</label>
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="1000" name="power-monitor-interval"
+                       [(ngModel)]="power_monitor_interval">
+                <span class="input-group-addon">ms</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerMonitorInterval()">Submit Interval</button>
+        </div>
+    </div>
 </form>

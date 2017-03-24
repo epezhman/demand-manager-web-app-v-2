@@ -18,7 +18,7 @@ export class PowerChartDeviceComponent {
 
     @Input()
     set chartDevice(chartDevice: DeviceDetail) {
-        if (chartDevice) {
+        if (chartDevice && chartDevice['$value']) {
             var ac_connected = [];
             var app_running = [];
             var computer_running = [];
