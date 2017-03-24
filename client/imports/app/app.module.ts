@@ -1,4 +1,4 @@
-import {NgModule, enableProdMode} from "@angular/core";
+import {enableProdMode, NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
 import {RouterModule} from "@angular/router";
@@ -19,9 +19,10 @@ import {AgmCoreModule} from "angular2-google-maps/core";
 import {Ng2PaginationModule} from "ng2-pagination";
 import {COMMAND_DECLARATIONS} from "../components/commandSchedule";
 import {CHART_DECLARATIONS} from "../components/chart";
-import {SETTINGS_DECLARATIONS} from "../components/settings"
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {SETTINGS_DECLARATIONS} from "../components/settings";
+import {ChartsModule} from "ng2-charts/ng2-charts";
 import {UtilsService} from "../services/utils.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 if (Meteor.isProduction) {
@@ -43,10 +44,11 @@ export const firebaseConfig = {
         AccountsModule,
         FormsModule,
         ReactiveFormsModule,
-        SimpleNotificationsModule,
+        SimpleNotificationsModule.forRoot(),
         Ng2PaginationModule,
         ChartsModule,
         AngularFireModule.initializeApp(firebaseConfig),
+        BrowserAnimationsModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyAaTEB01LfTgf7SrjKZzz_PbWT6hNxJHcM'
         })
