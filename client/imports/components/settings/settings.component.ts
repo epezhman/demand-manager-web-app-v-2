@@ -33,7 +33,6 @@ export class SettingComponent {
     }
 
     changeSetting() {
-
         const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
         settingsObservable.update({
             'logging': this.settings['logging'],
@@ -52,5 +51,22 @@ export class SettingComponent {
                 'Something went wrong, try again please.'
             );
         });
+    }
+
+    deleteLogs() {
+        if (confirm('Are you Sure?')) {
+            const loggingObservable = this.af.database.object(`/logging/${this.deviceId}`);
+            loggingObservable.remove().then(() => {
+                this.notif.success(
+                    'Success',
+                    'Logging Deleted'
+                );
+            }).catch((err) => {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            });
+        }
     }
 }
