@@ -35,6 +35,9 @@ export class DeviceDetailComponent implements DoCheck {
     devicesScheduleObserver = {};
     devicesScheduleSubscription = {};
 
+    devicesSchedulePeriodObserver = {};
+    devicesSchedulePeriodSubscription = {};
+
     devicesHardwareObserver = {};
     devicesHardwareSubscription = {};
 
@@ -112,6 +115,11 @@ export class DeviceDetailComponent implements DoCheck {
             this.devices[newDevice]['schedule'] = deviceData;
         });
 
+        this.devicesSchedulePeriodObserver[newDevice] = this.af.database.object('/schedule-period/' + newDevice);
+        this.devicesSchedulePeriodSubscription[newDevice] = this.devicesSchedulePeriodObserver[newDevice].subscribe((deviceData) => {
+            this.devices[newDevice]['schedule-period'] = deviceData;
+        });
+
         this.devicesHardwareObserver[newDevice] = this.af.database.object('/hardware/' + newDevice);
         this.devicesHardwareSubscription[newDevice] = this.devicesHardwareObserver[newDevice].subscribe((deviceData) => {
             this.devices[newDevice]['hardware'] = deviceData;
@@ -129,6 +137,7 @@ export class DeviceDetailComponent implements DoCheck {
         delete this.devicesInfoObserver[oldDevice];
         delete this.devicesActivityObserver[oldDevice];
         delete this.devicesScheduleObserver[oldDevice];
+        delete this.devicesSchedulePeriodObserver[oldDevice];
         delete this.devicesHardwareObserver[oldDevice];
         delete this.devicesSettingsObserver[oldDevice];
 
@@ -149,6 +158,9 @@ export class DeviceDetailComponent implements DoCheck {
 
         this.devicesScheduleSubscription[oldDevice].unsubscribe();
         delete this.devicesScheduleSubscription[oldDevice];
+
+        this.devicesSchedulePeriodSubscription[oldDevice].unsubscribe();
+        delete this.devicesSchedulePeriodSubscription[oldDevice];
 
         this.devicesHardwareSubscription[oldDevice].unsubscribe();
         delete this.devicesHardwareSubscription[oldDevice];

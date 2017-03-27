@@ -1,4 +1,4 @@
-import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {AngularFire} from "angularfire2";
 import {DeviceDetail} from "../../../../both/interfaces/device.interface";
 import * as _ from "lodash";
@@ -24,6 +24,8 @@ export class CommandScheduleSumComponent {
 
     days: Array<number>;
     hours: Array<number>;
+
+    schedule_period: string = '';
 
     notifOptions = {
         timeOut: 1000,
@@ -95,6 +97,29 @@ export class CommandScheduleSumComponent {
                 );
             }
         });
+    }
 
+    changeSchedulePeriod() {
+        each(this.devicesId, (deviceId, cb) => {
+            const scheduleObservable = this.af.database.object(`/schedule-period/${deviceId}/`);
+            scheduleObservable.update({
+                'schedule': this.schedule_period
+            }).then(() => {
+                cb();
+            })
+
+        }, (err) => {
+            if (err) {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            } else {
+                this.notif.success(
+                    'Success',
+                    'Schedule Period Changed.'
+                );
+            }
+        });
     }
 }

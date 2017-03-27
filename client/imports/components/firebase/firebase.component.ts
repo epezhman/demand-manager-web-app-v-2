@@ -106,6 +106,12 @@ export class FirebaseComponent {
                         });
                     },
                     (cb) => {
+                        const onlineObservable = this.af.database.object(`/schedule-period/${this.removeDeviceId}`);
+                        onlineObservable.remove().then(() => {
+                            cb(null);
+                        });
+                    },
+                    (cb) => {
                         const countObservable = this.af.database.object(`/statistics/`);
                         const countSubscription = countObservable.subscribe(data => {
                             countSubscription.unsubscribe();

@@ -17,6 +17,7 @@ import * as firebase from "firebase";
 export class CommandScheduleComponent {
 
     schedules: DeviceDetail;
+    @Input() schedule_period: DeviceDetail;
     @Input() deviceId: string;
     days: Array<number>;
     hours: Array<number>;
@@ -41,7 +42,7 @@ export class CommandScheduleComponent {
 
     toggleSchedule(schedule) {
         schedule['dr_running_bool'] = !schedule['dr_running_bool'];
-        var profileId = `${this.utils.getDayNum(schedule['day_of_week'])}-${schedule['one_hour_duration_beginning']}`;
+        const profileId = `${this.utils.getDayNum(schedule['day_of_week'])}-${schedule['one_hour_duration_beginning']}`;
         const commandObservable = this.af.database.object(`/schedule/${this.deviceId}/${profileId}`);
         //noinspection TypeScriptUnresolvedVariable
         commandObservable.update({
@@ -51,6 +52,23 @@ export class CommandScheduleComponent {
             this.notif.success(
                 'Success',
                 'Schedule Set.'
+            );
+        }).catch((err) => {
+            this.notif.error(
+                'Error',
+                'Something went wrong, try again please.'
+            );
+        });
+    }
+
+    changeSchedulePeriod() {
+        const scheduleObservable = this.af.database.object(`/schedule-period/${this.deviceId}/`);
+        scheduleObservable.update({
+            'schedule': this.schedule_period['schedule']
+        }).then(() => {
+            this.notif.success(
+                'Success',
+                'Schedule Saved'
             );
         }).catch((err) => {
             this.notif.error(
