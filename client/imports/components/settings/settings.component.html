@@ -32,7 +32,11 @@
             <button type="submit" class="btn btn-primary btn-sm" (click)="changeSetting()">Submit</button>
         </div>
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-danger btn-sm pull-right" (click)="deleteLogs()">Delete Logs</button>
+            <div class="btn-group pull-right" role="group">
+                <button class="btn btn-warning btn-sm" (click)="restartApp()">Restart App</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteLogs()">Delete Logs</button>
+            </div>
+
         </div>
     </div>
 </form>

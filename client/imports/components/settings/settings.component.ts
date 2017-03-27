@@ -69,4 +69,21 @@ export class SettingComponent {
             });
         }
     }
+
+    restartApp() {
+        const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
+        settingsObservable.update({
+            'restart': true
+        }).then(() => {
+            this.notif.success(
+                'Success',
+                'Restart Set'
+            );
+        }).catch((err) => {
+            this.notif.error(
+                'Error',
+                'Something went wrong, try again please.'
+            );
+        });
+    }
 }
