@@ -2,7 +2,6 @@ import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
 import {DeviceDetail} from "../../../../both/interfaces/device.interface";
 import * as _ from "lodash";
 import "geolib";
-
 //noinspection TypeScriptCheckImport
 import template from "./map-device.component.html";
 

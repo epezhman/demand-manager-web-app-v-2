@@ -3,13 +3,13 @@
             *ngFor="let loc of locationsData"
             [latitude]="loc['latitude']"
             [longitude]="loc['longitude']"
-            [title]="loc['day_of_week'] + loc['section_of_day']"
+            [title]="loc['day_of_week'] + loc['hour_index']"
             [iconUrl]="iconBasedOnDay(loc)"
             [openInfoWindow]="true">
 
         <sebm-google-map-info-window>
             <span class="primary-font">
-                <i class="fa fa-clock-o"></i> {{loc['day_of_week']}} - {{loc['section_of_day']}}
+                <i class="fa fa-clock-o"></i> {{loc['day_of_week']}} - {{loc['hour_index']}}
             </span>
             <br>
             <small><i class="fa fa-location-arrow"></i> {{loc['latitude']}} - {{loc['longitude']}}</small>

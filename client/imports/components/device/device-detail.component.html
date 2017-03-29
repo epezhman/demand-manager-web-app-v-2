@@ -23,20 +23,21 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="btn-group pull-right btn-group-sm">
-                        <button type="button" class="btn btn-primary" data-toggle="collapse"
-                                data-target="#collapse-dr-schedules" aria-expanded="false"><i
-                                class="fa fa-calendar-check-o fa-fw"></i></button>
-                        <button type="button" class="btn btn-default" (click)="clearSum()"><i
-                                class="fa fa-eraser fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                data-target="#collapse-settings" aria-expanded="false"><i
-                                class="fa fa-sliders fa-fw"></i></button>
+                                data-target="#collapse-dr-schedules" aria-expanded="false">
+                            <i class="fa fa-calendar fa-fw"></i>
+                        </button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                data-target="#collapse-power-charts" aria-expanded="false"><i
-                                class="fa fa-area-chart fa-fw"></i></button>
+                                data-target="#collapse-settings" aria-expanded="false">
+                            <i class="fa fa-sliders fa-fw"></i>
+                        </button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                data-target="#collapse-maps" aria-expanded="false"><i
-                                class="fa fa-map fa-fw"></i></button>
+                                data-target="#collapse-power-models" aria-expanded="false">
+                            <i class="fa fa-plug fa-fw"></i>
+                        </button>
+                        <button type="button" class="btn btn-warning" (click)="clearSum()">
+                            <i class="fa fa-times fa-fw"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -44,9 +45,8 @@
                 <div class="col-md-12">
                     <div class="collapse" id="collapse-dr-schedules">
                         <hr>
-                        <h4> DM Schedule </h4>
-                        <command-schedule-devices-sum [scheduleDevices]="devicesToSumSchedule"
-                                                      [devicesId]="devicesIdToSumSchedule"></command-schedule-devices-sum>
+                        <h4> DR Schedule </h4>
+                        <schedule-devices-sum [devicesId]="devicesIdToSumSchedule"></schedule-devices-sum>
                     </div>
                 </div>
             </div>
@@ -55,30 +55,19 @@
                     <div class="collapse" id="collapse-settings">
                         <hr>
                         <h4> Devices Settings </h4>
-                        <settings-devices-sum
-                                [settingDevicesId]="devicesIdToSumSchedule"></settings-devices-sum>
+                        <settings-devices-sum [settingDevicesId]="devicesIdToSumSchedule"></settings-devices-sum>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="collapse in" id="collapse-power-charts">
+                    <div class="collapse" id="collapse-power-models">
                         <hr>
-                        <h4> Powers Profile </h4>
-                        <power-chart-device-sum [chartDevices]="devicesToSumPower"></power-chart-device-sum>
+                        <h4> Power Models </h4>
+                        <power-model-sum [devicesId]="devicesIdToSumPowerModel"></power-model-sum>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="collapse in" id="collapse-maps">
-                        <hr>
-                        <h4> Locations Profile </h4>
-                        <map-device-sum [mapDevices]="devicesToSumLocation"></map-device-sum>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
@@ -109,21 +98,32 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="btn-group pull-right btn-group-sm">
-                        <button type="button" class="btn btn-primary" data-toggle="collapse"
-                                [attr.data-target]="'#collapse-dr-schedule-' + i" aria-expanded="false"><i
-                                class="fa fa-calendar-check-o fa-fw"></i></button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                [attr.data-target]="'#collapse-hardware-' + i" aria-expanded="false"><i
-                                class="fa fa-info fa-fw"></i></button>
+                                [attr.data-target]="'#collapse-dr-schedule-' + i" aria-expanded="false">
+                            <i class="fa fa-calendar fa-fw"></i>
+                        </button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                [attr.data-target]="'#collapse-settings-' + i" aria-expanded="false"><i
-                                class="fa fa-sliders fa-fw"></i></button>
+                                [attr.data-target]="'#collapse-settings-' + i" aria-expanded="false">
+                            <i class="fa fa-sliders fa-fw"></i>
+                        </button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                [attr.data-target]="'#collapse-power-chart-' + i" aria-expanded="false"><i
-                                class="fa fa-area-chart fa-fw"></i></button>
+                                [attr.data-target]="'#collapse-power-model-' + i" aria-expanded="false">
+                            <i class="fa fa-plug fa-fw"></i>
+                        </button>
                         <button type="button" class="btn btn-default" data-toggle="collapse"
-                                [attr.data-target]="'#collapse-maps-' + i" aria-expanded="false"><i
-                                class="fa fa-map fa-fw"></i></button>
+                                [attr.data-target]="'#collapse-hardware-' + i" aria-expanded="false">
+                            <i class="fa fa-info fa-fw"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-power-chart-' + i" aria-expanded="false"
+                                (click)="loadPowers(device['key'])">
+                            <i class="fa fa-area-chart fa-fw"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse"
+                                [attr.data-target]="'#collapse-maps-' + i" aria-expanded="false"
+                                (click)="loadLocations(device['key'])">
+                            <i class="fa fa-map fa-fw"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -131,10 +131,9 @@
                 <div class="col-md-12">
                     <div class="collapse" id="collapse-dr-schedule-{{i}}">
                         <hr>
-                        <h4> DM Schedule </h4>
-                        <command-schedule-device [scheduleDevice]="device['schedule']"
-                                                 [schedule_period]="device['schedule-period']"
-                                                 [deviceId]="device['key']"></command-schedule-device>
+                        <h4> DR Schedule </h4>
+                        <schedule-device [schedule_period]="device['schedule-period']"
+                                         [deviceId]="device['key']"></schedule-device>
                     </div>
                 </div>
             </div>
@@ -150,6 +149,15 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <div class="collapse" id="collapse-power-model-{{i}}">
+                        <hr>
+                        <h4> Power Model </h4>
+                        <power-model [power_model]="device['power-model']" [deviceId]="device['key']"></power-model>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <div class="collapse" id="collapse-hardware-{{i}}">
                         <hr>
                         <h4> Hardware Info </h4>
@@ -158,8 +166,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="collapse" id="collapse-power-chart-{{i}}">
+                <div class="col-md-12" *ngIf="device['power']">
+                    <div class="collapse in" id="collapse-power-chart-{{i}}">
                         <hr>
                         <h4> Power Profile </h4>
                         <power-chart-device [chartDevice]="device['power']"></power-chart-device>
@@ -167,7 +175,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" *ngIf="device['location']">
                     <div class="collapse in" id="collapse-maps-{{i}}">
                         <hr>
                         <h4> Location Profile </h4>

@@ -1,0 +1,16 @@
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+
+<form class="form-horizontal" *ngIf="devicesId">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Schedule Period</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" placeholder="Schedule Period" name="schedule-period"
+                   [(ngModel)]="schedule_period">
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changeSchedulePeriod()">Submit Schedule
+            </button>
+        </div>
+    </div>
+</form>

@@ -17,8 +17,9 @@ import {SimpleNotificationsModule} from "angular2-notifications";
 import {AngularFireModule, WindowLocation} from "angularfire2";
 import {AgmCoreModule} from "angular2-google-maps/core";
 import {Ng2PaginationModule} from "ng2-pagination";
-import {COMMAND_DECLARATIONS} from "../components/commandSchedule";
-import {CHART_DECLARATIONS} from "../components/chart";
+import {SCHEDULE_DECLARATIONS} from "../components/schedule";
+import {POWER_MODEL_DECLARATIONS} from "../components/powerModel";
+import {CHART_DECLARATIONS} from "../components/powerChart";
 import {SETTINGS_DECLARATIONS} from "../components/settings";
 import {ChartsModule} from "ng2-charts/ng2-charts";
 import {UtilsService} from "../services/utils.service";
@@ -63,9 +64,10 @@ export const firebaseConfig = {
         ...MAP_DECLARATIONS,
         ...USER_DECLARATIONS,
         ...PIPE_DECLARATIONS,
-        ...COMMAND_DECLARATIONS,
+        ...SCHEDULE_DECLARATIONS,
         ...CHART_DECLARATIONS,
-        ...SETTINGS_DECLARATIONS
+        ...SETTINGS_DECLARATIONS,
+        ...POWER_MODEL_DECLARATIONS
     ],
     bootstrap: [
         AppComponent

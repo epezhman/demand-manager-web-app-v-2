@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-
 //noinspection TypeScriptCheckImport
 import template from "./notfound.component.html";
 

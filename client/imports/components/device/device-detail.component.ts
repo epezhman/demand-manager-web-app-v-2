@@ -18,8 +18,6 @@ export class DeviceDetailComponent implements DoCheck {
     oldDevices: string[];
     oldLength = 0;
 
-    loadingObserver = {};
-
     devicesPowerObserver = {};
     devicesPowerSubscription = {};
 
@@ -44,13 +42,16 @@ export class DeviceDetailComponent implements DoCheck {
     devicesSettingsObserver = {};
     devicesSettingSubscription = {};
 
+    devicesPowerModelObserver = {};
+    devicesPowerModelSubscription = {};
+
     devices = {};
     devicesToSumPower = [];
     devicesToSumLocation = [];
     devicesToSumSchedule = [];
     devicesIdToSumSchedule = [];
     devicesIdToSumSettings = [];
-
+    devicesIdToSumPowerModel = [];
 
     constructor(private af: AngularFire) {
 
@@ -78,26 +79,8 @@ export class DeviceDetailComponent implements DoCheck {
 
     }
 
-    checkIfLoadingShouldBeStopped() {
-        if (_.every(_.values(this.loadingObserver), (v) => !v))
-            this.isLoading.emit(false);
-    }
-
     initiateLoading(newDevice) {
-        this.loadingObserver[newDevice] = true;
-        this.isLoading.emit(true);
         this.devices[newDevice] = {};
-        this.devicesPowerObserver[newDevice] = this.af.database.object('/power-cluster/' + newDevice);
-        this.devicesPowerSubscription[newDevice] = this.devicesPowerObserver[newDevice].subscribe((deviceData) => {
-            this.devices[newDevice]['power'] = deviceData;
-            this.loadingObserver[newDevice] = false;
-            this.checkIfLoadingShouldBeStopped();
-        });
-
-        this.devicesLocationObserver[newDevice] = this.af.database.object('/location-cluster/' + newDevice);
-        this.devicesLocationSubscription[newDevice] = this.devicesLocationObserver[newDevice].subscribe((deviceData) => {
-            this.devices[newDevice]['location'] = deviceData;
-        });
 
         this.devicesInfoObserver[newDevice] = this.af.database.object('/device/' + newDevice);
         this.devicesInfoSubscription[newDevice] = this.devicesInfoObserver[newDevice].subscribe((deviceData) => {
@@ -108,11 +91,6 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesActivitySubscription[newDevice] = this.devicesActivityObserver[newDevice].subscribe((deviceData) => {
             this.devices[newDevice]['activity'] = deviceData;
             this.devices[newDevice]['key'] = deviceData.$key;
-        });
-
-        this.devicesScheduleObserver[newDevice] = this.af.database.object('/schedule/' + newDevice);
-        this.devicesScheduleSubscription[newDevice] = this.devicesScheduleObserver[newDevice].subscribe((deviceData) => {
-            this.devices[newDevice]['schedule'] = deviceData;
         });
 
         this.devicesSchedulePeriodObserver[newDevice] = this.af.database.object('/schedule-period/' + newDevice);
@@ -129,29 +107,62 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesSettingSubscription[newDevice] = this.devicesSettingsObserver[newDevice].subscribe((deviceData) => {
             this.devices[newDevice]['settings'] = deviceData;
         });
+
+        this.devicesPowerModelObserver[newDevice] = this.af.database.object('/power-model/' + newDevice);
+        this.devicesPowerModelSubscription[newDevice] = this.devicesPowerModelObserver[newDevice].subscribe((deviceData) => {
+            this.devices[newDevice]['power-model'] = deviceData;
+        });
+    }
+
+    loadPowers(newDevice) {
+        if (!this.devicesPowerObserver[newDevice]) {
+            this.isLoading.emit(true);
+            this.devicesPowerObserver[newDevice] = this.af.database.object('/power/' + newDevice);
+            this.devicesPowerSubscription[newDevice] = this.devicesPowerObserver[newDevice].subscribe((deviceData) => {
+                this.devices[newDevice]['power'] = deviceData;
+                this.isLoading.emit(false);
+            });
+        }
+    }
+
+    loadLocations(newDevice) {
+        if (!this.devicesLocationObserver[newDevice]) {
+            this.isLoading.emit(true);
+            this.devicesLocationObserver[newDevice] = this.af.database.object('/location/' + newDevice);
+            this.devicesLocationSubscription[newDevice] = this.devicesLocationObserver[newDevice].subscribe((deviceData) => {
+                this.devices[newDevice]['location'] = deviceData;
+                this.isLoading.emit(false);
+            });
+        }
     }
 
     removeDeviceFromList(oldDevice) {
-        delete this.devicesPowerObserver[oldDevice];
-        delete this.devicesLocationObserver[oldDevice];
+        if (this.devicesPowerObserver[oldDevice])
+            delete this.devicesPowerObserver[oldDevice];
+        if (this.devicesLocationObserver[oldDevice])
+            delete this.devicesLocationObserver[oldDevice];
         delete this.devicesInfoObserver[oldDevice];
         delete this.devicesActivityObserver[oldDevice];
         delete this.devicesScheduleObserver[oldDevice];
         delete this.devicesSchedulePeriodObserver[oldDevice];
         delete this.devicesHardwareObserver[oldDevice];
         delete this.devicesSettingsObserver[oldDevice];
+        delete this.devicesPowerModelObserver[oldDevice];
 
         delete this.devices[oldDevice];
-        delete this.loadingObserver[oldDevice];
 
-        this.devicesPowerSubscription[oldDevice].unsubscribe();
-        delete this.devicesPowerSubscription[oldDevice];
+        if (this.devicesPowerSubscription[oldDevice]) {
+            this.devicesPowerSubscription[oldDevice].unsubscribe();
+            delete this.devicesPowerSubscription[oldDevice];
+        }
 
         this.devicesInfoSubscription[oldDevice].unsubscribe();
         delete this.devicesInfoSubscription[oldDevice];
 
-        this.devicesLocationSubscription[oldDevice].unsubscribe();
-        delete this.devicesLocationSubscription[oldDevice];
+        if (this.devicesLocationSubscription[oldDevice]) {
+            this.devicesLocationSubscription[oldDevice].unsubscribe();
+            delete this.devicesLocationSubscription[oldDevice];
+        }
 
         this.devicesActivitySubscription[oldDevice].unsubscribe();
         delete this.devicesActivitySubscription[oldDevice];
@@ -168,7 +179,9 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesSettingSubscription[oldDevice].unsubscribe();
         delete this.devicesSettingSubscription[oldDevice];
 
-        this.checkIfLoadingShouldBeStopped();
+        this.devicesPowerModelSubscription[oldDevice].unsubscribe();
+        delete this.devicesPowerModelSubscription[oldDevice];
+
     }
 
     getDevicesCount(): number {
@@ -220,6 +233,11 @@ export class DeviceDetailComponent implements DoCheck {
         _.forEach(this.devices, (profile, key) => {
             this.devicesIdToSumSettings.push(profile['key']);
         });
+        this.devicesIdToSumPowerModel = [];
+        this.devicesIdToSumPowerModel = [];
+        _.forEach(this.devices, (profile, key) => {
+            this.devicesIdToSumPowerModel.push(profile['key']);
+        });
     }
 
     clearSum(): void {
@@ -228,6 +246,7 @@ export class DeviceDetailComponent implements DoCheck {
         this.devicesToSumSchedule = [];
         this.devicesIdToSumSchedule = [];
         this.devicesIdToSumSettings = [];
+        this.devicesIdToSumPowerModel = [];
     }
 
 }

@@ -19,7 +19,6 @@ export class SettingSumComponent {
     @Input() settingDevicesId: Array<string>;
 
     logging: boolean = false;
-    power_model: string = '';
     power_monitor_interval: number = 1000;
 
     notifOptions = {
@@ -32,34 +31,9 @@ export class SettingSumComponent {
 
     changeLogging() {
         each(this.settingDevicesId, (deviceId, cb) => {
-            console.log(this.af);
             const settingsObservable = this.af.database.object(`/settings/${deviceId}/`);
             settingsObservable.update({
                 'logging': this.logging
-            }).then(() => {
-                cb();
-            })
-
-        }, (err) => {
-            if (err) {
-                this.notif.error(
-                    'Error',
-                    'Something went wrong, try again please.'
-                );
-            } else {
-                this.notif.success(
-                    'Success',
-                    'Power Model Changed.'
-                );
-            }
-        });
-    }
-
-    changePowerModel() {
-        each(this.settingDevicesId, (deviceId, cb) => {
-            const settingsObservable = this.af.database.object(`/settings/${deviceId}/`);
-            settingsObservable.update({
-                'power-model': this.power_model
             }).then(() => {
                 cb();
             })

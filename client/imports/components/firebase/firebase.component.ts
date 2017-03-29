@@ -6,6 +6,7 @@ import {series} from "async";
 import {NotificationsService} from "angular2-notifications";
 //noinspection TypeScriptCheckImport
 import template from "./firebase.component.html";
+import * as _ from "lodash";
 
 
 @Component({
@@ -16,6 +17,7 @@ import template from "./firebase.component.html";
 export class FirebaseComponent {
     devices: FirebaseListObservable<Device[]>;
     isLoading: boolean = false;
+    notSubmitting:boolean = false;
 
     removeDeviceId: string;
 
@@ -29,19 +31,19 @@ export class FirebaseComponent {
     }
 
     removeDevice(): void {
-
-        if (confirm('Are you Sure?')) {
-
+        this.removeDeviceId = _.trim(this.removeDeviceId);
+        if (confirm('Are you Sure?') && this.removeDeviceId) {
+            this.notSubmitting = true;
             series([
                     (cb) => {
-                        const deviceObservable = this.af.database.object(`/activity-status/${this.removeDeviceId}`);
-                        deviceObservable.remove().then(() => {
+                        const onlineObservable = this.af.database.object(`/device/${this.removeDeviceId}`);
+                        onlineObservable.remove().then(() => {
                             cb(null);
                         });
                     },
                     (cb) => {
-                        const onlineObservable = this.af.database.object(`/device/${this.removeDeviceId}`);
-                        onlineObservable.remove().then(() => {
+                        const deviceObservable = this.af.database.object(`/activity-status/${this.removeDeviceId}`);
+                        deviceObservable.remove().then(() => {
                             cb(null);
                         });
                     },
@@ -64,12 +66,6 @@ export class FirebaseComponent {
                         });
                     },
                     (cb) => {
-                        const onlineObservable = this.af.database.object(`/location-cluster/${this.removeDeviceId}`);
-                        onlineObservable.remove().then(() => {
-                            cb(null);
-                        });
-                    },
-                    (cb) => {
                         const onlineObservable = this.af.database.object(`/online/${this.removeDeviceId}`);
                         onlineObservable.remove().then(() => {
                             cb(null);
@@ -77,18 +73,6 @@ export class FirebaseComponent {
                     },
                     (cb) => {
                         const onlineObservable = this.af.database.object(`/power/${this.removeDeviceId}`);
-                        onlineObservable.remove().then(() => {
-                            cb(null);
-                        });
-                    },
-                    (cb) => {
-                        const onlineObservable = this.af.database.object(`/power-cluster/${this.removeDeviceId}`);
-                        onlineObservable.remove().then(() => {
-                            cb(null);
-                        });
-                    },
-                    (cb) => {
-                        const onlineObservable = this.af.database.object(`/schedule/${this.removeDeviceId}`);
                         onlineObservable.remove().then(() => {
                             cb(null);
                         });
@@ -112,6 +96,12 @@ export class FirebaseComponent {
                         });
                     },
                     (cb) => {
+                        const onlineObservable = this.af.database.object(`/power-model/${this.removeDeviceId}`);
+                        onlineObservable.remove().then(() => {
+                            cb(null);
+                        });
+                    },
+                    (cb) => {
                         const countObservable = this.af.database.object(`/statistics/`);
                         const countSubscription = countObservable.subscribe(data => {
                             countSubscription.unsubscribe();
@@ -124,6 +114,8 @@ export class FirebaseComponent {
                     }
                 ],
                 (err, results) => {
+                    this.notSubmitting = false;
+                    this.removeDeviceId = '';
                     this.notif.success(
                         'Success',
                         'Device is removed.'
