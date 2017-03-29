@@ -36,7 +36,8 @@ export class SettingComponent {
         const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
         settingsObservable.update({
             'logging': this.settings['logging'],
-            'power-monitor-interval': this.settings['power-monitor-interval']
+            'power-monitor-interval': this.settings['power-monitor-interval'],
+            'days-delete-db': this.settings['days-delete-db']
         }).then(() => {
             this.notif.success(
                 'Success',

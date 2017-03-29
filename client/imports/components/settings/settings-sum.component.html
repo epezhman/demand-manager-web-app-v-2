@@ -28,4 +28,17 @@
             <button type="submit" class="btn btn-default btn-sm" (click)="changePowerMonitorInterval()">Submit Interval</button>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Days to Delete App DB</label>
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="3" name="days-to-delete-db"
+                       [(ngModel)]="days_to_delete_db">
+                <span class="input-group-addon">Days</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changeDays()">Submit Days</button>
+        </div>
+    </div>
 </form>

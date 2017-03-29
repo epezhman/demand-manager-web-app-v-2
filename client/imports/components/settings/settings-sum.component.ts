@@ -20,6 +20,7 @@ export class SettingSumComponent {
 
     logging: boolean = false;
     power_monitor_interval: number = 1000;
+    days_to_delete_db: number = 30;
 
     notifOptions = {
         timeOut: 1000,
@@ -52,6 +53,31 @@ export class SettingSumComponent {
             }
         });
     }
+
+    changeDays() {
+        each(this.settingDevicesId, (deviceId, cb) => {
+            const settingsObservable = this.af.database.object(`/settings/${deviceId}/`);
+            settingsObservable.update({
+                'days-delete-db': this.days_to_delete_db
+            }).then(() => {
+                cb();
+            })
+
+        }, (err) => {
+            if (err) {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            } else {
+                this.notif.success(
+                    'Success',
+                    'Days Changed.'
+                );
+            }
+        });
+    }
+
 
     changePowerMonitorInterval() {
         each(this.settingDevicesId, (deviceId, cb) => {

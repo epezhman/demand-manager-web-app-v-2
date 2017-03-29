@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93002f0-579d-4154-968f-2d50372a6114" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/powerChart/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/powerModel/power-model-sum.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/powerModel/power-model-sum.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/powerModel/power-model.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/powerModel/power-model.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/schedule/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/schedule/schedule-sum.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/schedule/schedule-sum.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/schedule/schedule.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/imports/components/schedule/schedule.component.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/chart/index.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/chart/power-chart-device-sum.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/chart/power-chart-device-sum.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/commandSchedule/command-schedule-sum.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/commandSchedule/command-schedule-sum.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/commandSchedule/command-schedule.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/commandSchedule/command-schedule.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/map/map-device-sum.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/imports/components/map/map-device-sum.component.ts" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/imports/components/chart/power-chart-device.component.html" afterPath="$PROJECT_DIR$/client/imports/components/powerChart/power-chart-device.component.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/imports/components/chart/power-chart-device.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/powerChart/power-chart-device.component.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/imports/components/commandSchedule/index.ts" afterPath="$PROJECT_DIR$/client/imports/components/powerModel/index.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/app/app.module.ts" afterPath="$PROJECT_DIR$/client/imports/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/device/device-detail.component.html" afterPath="$PROJECT_DIR$/client/imports/components/device/device-detail.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/device/device-detail.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/device/device-detail.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.html" afterPath="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/map/index.ts" afterPath="$PROJECT_DIR$/client/imports/components/map/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/map/map-device.component.html" afterPath="$PROJECT_DIR$/client/imports/components/map/map-device.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/map/map-device.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/map/map-device.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/notFound/notfound.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/notFound/notfound.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html" afterPath="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/settings/settings.component.html" afterPath="$PROJECT_DIR$/client/imports/components/settings/settings.component.html" />
@@ -61,37 +30,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="power-chart-device.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/imports/components/powerChart/power-chart-device.component.ts">
+      <file leaf-file-name="settings-sum.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="49" column="75" lean-forward="false" selection-start-line="49" selection-start-column="75" selection-end-line="49" selection-end-column="75" />
+            <state relative-caret-position="309">
+              <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="e#0#72#0" expanded="true" />
-                <marker date="1490794082640" expanded="true" signature="2247:2620" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="power-model.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/imports/components/powerModel/power-model.component.ts">
+      <file leaf-file-name="settings-sum.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="25" column="79" lean-forward="false" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
+            <state relative-caret-position="595">
+              <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firebase.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts">
+      <file leaf-file-name="settings.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="117" column="45" lean-forward="false" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
+            <state relative-caret-position="663">
+              <caret line="39" column="59" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="59" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#72#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="52" lean-forward="false" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -189,8 +167,6 @@
         <option value="$PROJECT_DIR$/client/imports/components/powerModel/index.ts" />
         <option value="$PROJECT_DIR$/client/imports/app/app.module.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/schedule/index.ts" />
-        <option value="$PROJECT_DIR$/client/imports/components/settings/settings.component.html" />
-        <option value="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/powerModel/power-model-sum.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/powerModel/power-model-sum.component.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/schedule/schedule.component.ts" />
@@ -198,8 +174,6 @@
         <option value="$PROJECT_DIR$/client/imports/components/powerModel/power-model.component.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/powerModel/power-model.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/schedule/schedule.component.html" />
-        <option value="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts" />
-        <option value="$PROJECT_DIR$/client/imports/components/settings/settings.component.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/map/map-device.component.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/map/map-device.component.html" />
@@ -208,6 +182,10 @@
         <option value="$PROJECT_DIR$/client/imports/components/device/device-detail.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/powerChart/power-chart-device.component.ts" />
         <option value="$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts" />
+        <option value="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html" />
+        <option value="$PROJECT_DIR$/client/imports/components/settings/settings.component.ts" />
+        <option value="$PROJECT_DIR$/client/imports/components/settings/settings.component.html" />
+        <option value="$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts" />
       </list>
     </option>
   </component>
@@ -223,10 +201,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="x" value="64" />
+    <option name="y" value="-11" />
+    <option name="width" value="1857" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -266,7 +244,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -378,6 +355,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demand-manager-web-app-v-2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demand-manager-web-app-v-2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="powerModel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -462,6 +465,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -627,12 +631,14 @@
       <workItem from="1490615521032" duration="2384000" />
       <workItem from="1490626220774" duration="1148000" />
       <workItem from="1490776365894" duration="1843000" />
-      <workItem from="1490780242174" duration="12991000" />
+      <workItem from="1490780242174" duration="13040000" />
+      <workItem from="1490794808024" duration="496000" />
+      <workItem from="1490799971756" duration="315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73274000" />
+    <option name="totallyTimeSpent" value="74134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,17 +650,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27565503" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32881" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.703125" sideWeight="0.5021834" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38726515" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29436326" sideWeight="0.4978166" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31002086" sideWeight="0.4978166" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31002086" sideWeight="0.4978166" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -663,6 +669,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38726515" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -780,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,9 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#56#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -805,9 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#59#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -815,9 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,9 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,7 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,9 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
           <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#55#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -869,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#67#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,9 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,7 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,7 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,25 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#60#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,10 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#72#0" expanded="false" />
-            <element signature="e#243#270#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -958,10 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#72#0" expanded="false" />
-            <element signature="e#246#273#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,10 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#72#0" expanded="false" />
-            <element signature="e#288#337#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -988,25 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="52" lean-forward="false" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#72#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,9 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="91" lean-forward="false" selection-start-line="28" selection-start-column="91" selection-end-line="28" selection-end-column="91" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1024,9 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1034,7 +955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,9 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#72#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-17">
           <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="56" lean-forward="false" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,16 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
           <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-            <element signature="n#!!block;n#removeDeviceFromList#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#getDevicesCount#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceObjectsAsList#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#toggleView#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#isVisiblePanel#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#toggleAll#0;n#DeviceDetailComponent#0" expanded="false" />
-            <element signature="n#!!block;n#sumAll#0;n#DeviceDetailComponent#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,12 +1017,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/powerChart/power-chart-device.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="833">
           <caret line="49" column="75" lean-forward="false" selection-start-line="49" selection-start-column="75" selection-end-line="49" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#72#0" expanded="true" />
-            <marker date="1490794082640" expanded="true" signature="2247:2620" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1128,16 +1026,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="79" lean-forward="false" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="979">
           <caret line="117" column="45" lean-forward="false" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="59" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="59" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="52" lean-forward="false" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/imports/components/settings/settings-sum.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
