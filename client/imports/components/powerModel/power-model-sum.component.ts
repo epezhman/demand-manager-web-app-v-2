@@ -18,6 +18,7 @@ export class PowerModelSumComponent {
 
     @Input() devicesId: Array<string> = [];
     power_model: string = '';
+    power_save_model: string = '';
 
     notifOptions = {
         timeOut: 1000,
@@ -47,6 +48,30 @@ export class PowerModelSumComponent {
                 this.notif.success(
                     'Success',
                     'Power Model Changed.'
+                );
+            }
+        });
+    }
+
+    changePowerSaveModel() {
+        each(this.devicesId, (deviceId, cb) => {
+            const powerObservable = this.af.database.object(`/power-model/${deviceId}/`);
+            powerObservable.update({
+                'power-save-model': _.trim(this.power_save_model)
+            }).then(() => {
+                cb();
+            })
+
+        }, (err) => {
+            if (err) {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            } else {
+                this.notif.success(
+                    'Success',
+                    'Power Save Model Changed.'
                 );
             }
         });

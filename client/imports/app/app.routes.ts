@@ -1,6 +1,7 @@
 import {Route} from "@angular/router";
 import {Meteor} from "meteor/meteor";
 import {DeviceListComponent} from "../components/device/device-list.component";
+import {DeviceAllListComponent} from "../components/device/device-all-list.component";
 import {WelcomeComponent} from "../components/welcome/welcome.component";
 import {LoginComponent} from "../components/auth/login.component";
 import {SignupComponent} from "../components/auth/signup.component";
@@ -13,6 +14,7 @@ export const routes: Route[] = [
     {path: '', component: WelcomeComponent},
     {path: 'map', component: MapComponent, canActivate: ['authGuard']},
     {path: 'devices', component: DeviceListComponent, canActivate: ['authGuard']},
+    {path: 'devices_all', component: DeviceAllListComponent, canActivate: ['authGuard']},
     {path: 'users', component: UserComponent, canActivate: ['authGuard']},
     {path: 'firebase', component: FirebaseComponent, canActivate: ['strictAuthGuard']},
     {path: 'login', component: LoginComponent},

@@ -13,4 +13,15 @@
             </button>
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Power Save Model</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" placeholder="Power Save Model" name="power-save-model"
+                   [(ngModel)]="power_save_model">
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerSaveModel()">Submit Model
+            </button>
+        </div>
+    </div>
 </form>

@@ -30,7 +30,8 @@ export class PowerModelComponent {
     changePowerModel() {
         const powerObservable = this.af.database.object(`/power-model/${this.deviceId}/`);
         powerObservable.update({
-            'power-model': this.power_model['power-model']
+            'power-model': this.power_model['power-model'],
+            'power-save-model': this.power_model['power-save-model']
         }).then(() => {
             this.notif.success(
                 'Success',

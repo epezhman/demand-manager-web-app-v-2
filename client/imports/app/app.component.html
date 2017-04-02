@@ -42,6 +42,10 @@
                     </li>
 
                     <li *ngIf="user && isStrictAdmin()">
+                        <a routerLink="/devices_all" routerLinkActive="active"><i
+                                class="fa fa-globe fa-fw"></i> Firebase All Devices</a>
+                    </li>
+                    <li *ngIf="user && isStrictAdmin()">
                         <a routerLink="/firebase" routerLinkActive="active"><i
                                 class="fa fa-fire-extinguisher fa-fw"></i> Firebase</a>
                     </li>
