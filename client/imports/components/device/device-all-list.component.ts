@@ -36,7 +36,6 @@ export class DeviceAllListComponent implements OnInit {
     }
 
 
-
     public configPagination: PaginationInstance = {
         id: 'devicesPagination',
         itemsPerPage: 100,
@@ -52,6 +51,16 @@ export class DeviceAllListComponent implements OnInit {
 
     loadingDeviceDetail(loading: boolean): void {
         this.isLoading = loading;
+    }
+
+    resetDeviceCount(): void {
+        const countObservable = this.af.database.object(`/statistics/`);
+        const countSubscription = countObservable.subscribe(data => {
+            countSubscription.unsubscribe();
+            countObservable.update({
+                'devices-count': this.devices.length
+            })
+        })
     }
 
 }
