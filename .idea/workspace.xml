@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93002f0-579d-4154-968f-2d50372a6114" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html" afterPath="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.ts" />
     </list>
@@ -27,22 +26,22 @@
     <favorites_list name="demand-manager-web-app-v-2" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="device-all-list.component.html" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="device-all-list.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="85" column="95" lean-forward="false" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="95" />
+            <state relative-caret-position="653">
+              <caret line="85" column="98" lean-forward="false" selection-start-line="85" selection-start-column="98" selection-end-line="85" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="device-all-list.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="device-all-list.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-all-list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="639">
+              <caret line="57" column="55" lean-forward="false" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
                 <element signature="e#221#277#0" expanded="true" />
@@ -54,8 +53,8 @@
       <file leaf-file-name="firebase.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="112" column="26" lean-forward="true" selection-start-line="104" selection-start-column="24" selection-end-line="112" selection-end-column="26" />
+            <state relative-caret-position="1836">
+              <caret line="112" column="26" lean-forward="false" selection-start-line="104" selection-start-column="24" selection-end-line="112" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -64,8 +63,8 @@
       <file leaf-file-name="device-list.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-list.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="116" column="26" lean-forward="true" selection-start-line="112" selection-start-column="19" selection-end-line="116" selection-end-column="26" />
+            <state relative-caret-position="1972">
+              <caret line="116" column="26" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="116" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -83,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>collapse-dr-schedules</find>
       <find>settings</find>
       <find>sch</find>
       <find>power</find>
@@ -113,6 +111,7 @@
       <find>longitudeFilter</find>
       <find>ength</find>
       <find>long</find>
+      <find>ngif</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -181,8 +180,8 @@
         <option value="$PROJECT_DIR$/client/imports/components/device/index.ts" />
         <option value="$PROJECT_DIR$/client/imports/app/app.routes.ts" />
         <option value="$PROJECT_DIR$/client/imports/app/app.component.html" />
-        <option value="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html" />
         <option value="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.ts" />
+        <option value="$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html" />
       </list>
     </option>
   </component>
@@ -242,6 +241,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -384,7 +384,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,11 +554,12 @@
       <workItem from="1490799971756" duration="726000" />
       <workItem from="1491123492683" duration="2414000" />
       <workItem from="1491213507622" duration="363000" />
+      <workItem from="1491214747081" duration="228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77322000" />
+    <option name="totallyTimeSpent" value="77550000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -578,8 +578,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32881" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.703125" sideWeight="0.5021834" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29436326" sideWeight="0.4978166" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30833334" sideWeight="0.4978166" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -967,38 +967,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="85" column="95" lean-forward="false" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/firebase/firebase.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="112" column="26" lean-forward="true" selection-start-line="104" selection-start-column="24" selection-end-line="112" selection-end-column="26" />
+        <state relative-caret-position="1836">
+          <caret line="112" column="26" lean-forward="false" selection-start-line="104" selection-start-column="24" selection-end-line="112" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-list.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="116" column="26" lean-forward="true" selection-start-line="112" selection-start-column="19" selection-end-line="116" selection-end-column="26" />
+        <state relative-caret-position="1972">
+          <caret line="116" column="26" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="116" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-all-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="639">
+          <caret line="57" column="55" lean-forward="false" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
             <element signature="e#221#277#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/imports/components/device/device-all-list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="85" column="98" lean-forward="false" selection-start-line="85" selection-start-column="98" selection-end-line="85" selection-end-column="98" />
+          <folding />
         </state>
       </provider>
     </entry>

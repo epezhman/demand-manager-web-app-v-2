@@ -54,11 +54,14 @@ export class DeviceAllListComponent implements OnInit {
     }
 
     resetDeviceCount(): void {
+        this.isLoading = true;
         const countObservable = this.af.database.object(`/statistics/`);
         const countSubscription = countObservable.subscribe(data => {
             countSubscription.unsubscribe();
             countObservable.update({
                 'devices-count': this.devices.length
+            }).then(() => {
+                this.isLoading = false;
             })
         })
     }
