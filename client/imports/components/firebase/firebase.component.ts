@@ -16,7 +16,6 @@ import * as _ from "lodash";
 })
 export class FirebaseComponent {
     devices: FirebaseListObservable<Device[]>;
-    isLoading: boolean = false;
     notSubmitting:boolean = false;
 
     removeDeviceId: string;

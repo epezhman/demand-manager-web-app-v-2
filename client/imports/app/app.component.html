@@ -37,13 +37,12 @@
                         <a routerLink="/devices" routerLinkActive="active"><i class="fa fa-laptop fa-fw"></i>
                             Devices</a>
                     </li>
-                    <li>
-                        <a routerLink="/users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> User</a>
-                    </li>
-
                     <li *ngIf="user && isStrictAdmin()">
                         <a routerLink="/devices_all" routerLinkActive="active"><i
                                 class="fa fa-globe fa-fw"></i> Firebase All Devices</a>
+                    </li>
+                    <li>
+                        <a routerLink="/users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> User</a>
                     </li>
                     <li *ngIf="user && isStrictAdmin()">
                         <a routerLink="/firebase" routerLinkActive="active"><i
