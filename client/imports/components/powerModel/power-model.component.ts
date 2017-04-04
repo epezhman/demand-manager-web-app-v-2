@@ -30,28 +30,31 @@ export class PowerModelComponent {
     }
 
     uploadPowerModel(uploadModelFile: any): void {
-        let uploadModel = this.firebaseStorage.ref().child(`/device-power-model/${this.deviceId}/power_model_cal.js`)
-            .put(uploadModelFile.srcElement.files[0]);
-        uploadModel.on(firebase.storage.TaskEvent.STATE_CHANGED,
-            (snapshot) => {
-                this.notif.info(
-                    'Uploading',
-                    'Power Model File Uploading.'
-                );
-            }, (error) => {
-                this.notif.error(
-                    'Error',
-                    `Something went wrong: ${error.code}`
-                );
+        if(uploadModelFile.srcElement.files[0])
+        {
+            let uploadModel = this.firebaseStorage.ref().child(`/device-power-model/${this.deviceId}/power_model_cal.js`)
+                .put(uploadModelFile.srcElement.files[0]);
+            uploadModel.on(firebase.storage.TaskEvent.STATE_CHANGED,
+                (snapshot) => {
+                    this.notif.info(
+                        'Uploading',
+                        'Power Model File Uploading.'
+                    );
+                }, (error) => {
+                    this.notif.error(
+                        'Error',
+                        `Something went wrong: ${error.code}`
+                    );
 
-            }, () => {
-                this.notif.success(
-                    'Success',
-                    'Power Model File.'
-                );
-                this.power_model['power-model-url'] = uploadModel.snapshot.downloadURL;
-                this.changePowerModel();
-            });
+                }, () => {
+                    this.notif.success(
+                        'Success',
+                        'Power Model File.'
+                    );
+                    this.power_model['power-model-url'] = uploadModel.snapshot.downloadURL;
+                    this.changePowerModel();
+                });
+        }
     }
 
     changePowerModel(): void {

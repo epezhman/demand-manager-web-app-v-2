@@ -34,28 +34,30 @@ export class PowerModelSumComponent {
     }
 
     uploadPowerModel(uploadModelFile: any): void {
-        let uploadModel = this.firebaseStorage.ref().child(`/group-power-model/${moment().format()}/power_model_cal.js`)
-            .put(uploadModelFile.srcElement.files[0]);
-        uploadModel.on(firebase.storage.TaskEvent.STATE_CHANGED,
-            (snapshot) => {
-                this.notif.info(
-                    'Uploading',
-                    'Power Model File Uploading.'
-                );
-            }, (error) => {
-                this.notif.error(
-                    'Error',
-                    `Something went wrong: ${error.code}`
-                );
+        if (uploadModelFile.srcElement.files[0]) {
+            let uploadModel = this.firebaseStorage.ref().child(`/group-power-model/${moment().format()}/power_model_cal.js`)
+                .put(uploadModelFile.srcElement.files[0]);
+            uploadModel.on(firebase.storage.TaskEvent.STATE_CHANGED,
+                (snapshot) => {
+                    this.notif.info(
+                        'Uploading',
+                        'Power Model File Uploading.'
+                    );
+                }, (error) => {
+                    this.notif.error(
+                        'Error',
+                        `Something went wrong: ${error.code}`
+                    );
 
-            }, () => {
-                this.notif.success(
-                    'Success',
-                    'Power Model File.'
-                );
-                this.power_save_model_url = uploadModel.snapshot.downloadURL;
-                this.changePowerModelURL();
-            });
+                }, () => {
+                    this.notif.success(
+                        'Success',
+                        'Power Model File.'
+                    );
+                    this.power_save_model_url = uploadModel.snapshot.downloadURL;
+                    this.changePowerModelURL();
+                });
+        }
     }
 
     changePowerModelURL() {
