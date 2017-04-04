@@ -30,9 +30,6 @@ export class DeviceDetailComponent implements DoCheck {
     devicesActivityObserver = {};
     devicesActivitySubscription = {};
 
-    devicesScheduleObserver = {};
-    devicesScheduleSubscription = {};
-
     devicesSchedulePeriodObserver = {};
     devicesSchedulePeriodSubscription = {};
 
@@ -143,7 +140,6 @@ export class DeviceDetailComponent implements DoCheck {
             delete this.devicesLocationObserver[oldDevice];
         delete this.devicesInfoObserver[oldDevice];
         delete this.devicesActivityObserver[oldDevice];
-        delete this.devicesScheduleObserver[oldDevice];
         delete this.devicesSchedulePeriodObserver[oldDevice];
         delete this.devicesHardwareObserver[oldDevice];
         delete this.devicesSettingsObserver[oldDevice];
@@ -166,9 +162,6 @@ export class DeviceDetailComponent implements DoCheck {
 
         this.devicesActivitySubscription[oldDevice].unsubscribe();
         delete this.devicesActivitySubscription[oldDevice];
-
-        this.devicesScheduleSubscription[oldDevice].unsubscribe();
-        delete this.devicesScheduleSubscription[oldDevice];
 
         this.devicesSchedulePeriodSubscription[oldDevice].unsubscribe();
         delete this.devicesSchedulePeriodSubscription[oldDevice];

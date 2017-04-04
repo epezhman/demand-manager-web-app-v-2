@@ -3,24 +3,20 @@
 
 <form class="form-horizontal" *ngIf="devicesId">
     <div class="form-group">
-        <label class="col-sm-2 control-label">Power Model</label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" placeholder="Power Model" name="power-model"
-                   [(ngModel)]="power_model">
-        </div>
-        <div class="col-sm-3">
-            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerModel()">Submit Model
-            </button>
+        <label class="col-sm-2 control-label">Power Model File</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" name="power-model-file" value="upload"
+                   (change)="uploadPowerModel($event)" [disabled]="!((af.auth | async)?.uid)">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label">Power Save Model</label>
+        <label class="col-sm-2 control-label">Power Model URL</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" placeholder="Power Save Model" name="power-save-model"
-                   [(ngModel)]="power_save_model">
+            <input type="url" class="form-control" placeholder="Power Save Model" name="power-save-model"
+                   [(ngModel)]="power_save_model_url">
         </div>
         <div class="col-sm-3">
-            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerSaveModel()">Submit Model
+            <button type="submit" class="btn btn-default btn-sm" (click)="changePowerModelURL()">Submit Model URL
             </button>
         </div>
     </div>

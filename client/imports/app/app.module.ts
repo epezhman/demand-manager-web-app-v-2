@@ -14,7 +14,7 @@ import {FIREBASE_DECLARATIONS} from "../components/firebase";
 import {DEVICE_DECLARATIONS} from "../components/device";
 import {USER_DECLARATIONS} from "../components/user";
 import {SimpleNotificationsModule} from "angular2-notifications";
-import {AngularFireModule, WindowLocation} from "angularfire2";
+import {AngularFireModule, AuthMethods, AuthProviders} from "angularfire2";
 import {AgmCoreModule} from "angular2-google-maps/core";
 import {Ng2PaginationModule} from "ng2-pagination";
 import {SCHEDULE_DECLARATIONS} from "../components/schedule";
@@ -37,6 +37,10 @@ export const firebaseConfig = {
     storageBucket: "tum-dm-fireb.appspot.com",
 };
 
+const firebaseAuthConfig = {
+    provider: AuthProviders.Google,
+    method: AuthMethods.Popup
+};
 
 @NgModule({
     imports: [
@@ -48,7 +52,7 @@ export const firebaseConfig = {
         SimpleNotificationsModule.forRoot(),
         Ng2PaginationModule,
         ChartsModule,
-        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
         BrowserAnimationsModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyAaTEB01LfTgf7SrjKZzz_PbWT6hNxJHcM'
@@ -74,21 +78,7 @@ export const firebaseConfig = {
     ],
     providers: [
         UtilsService,
-        ...ROUTES_PROVIDERS,
-        {
-            provide: WindowLocation,
-            useValue: {
-                hash: '',
-                search: '',
-                pathname: '/',
-                port: '',
-                hostname: 'localhost',
-                host: 'localhost',
-                protocol: 'https',
-                origin: 'localhost',
-                href: 'https://localhost/'
-            }
-        }
+        ...ROUTES_PROVIDERS
     ]
 })
 export class AppModule {

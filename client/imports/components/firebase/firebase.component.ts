@@ -16,7 +16,7 @@ import * as _ from "lodash";
 })
 export class FirebaseComponent {
     devices: FirebaseListObservable<Device[]>;
-    notSubmitting:boolean = false;
+    notSubmitting: boolean = false;
 
     removeDeviceId: string;
 
@@ -27,6 +27,14 @@ export class FirebaseComponent {
 
     constructor(private af: AngularFire, private notif: NotificationsService) {
 
+    }
+
+    login() {
+        this.af.auth.login();
+    }
+
+    logout() {
+        this.af.auth.logout();
     }
 
     removeDevice(): void {
