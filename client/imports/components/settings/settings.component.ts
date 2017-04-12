@@ -41,8 +41,8 @@ export class SettingComponent {
         settingsObservable.update({
             'logging': !!this.settings['logging'],
             'power-monitor-interval': this.settings['power-monitor-interval'] ?
-                this.settings['power-monitor-interval'] : 1000,
-            'days-delete-db': this.settings['days-delete-db'] ? this.settings['days-delete-db'] : 30
+                this.settings['power-monitor-interval'] : null,
+            'days-delete-db': this.settings['days-delete-db'] ? this.settings['days-delete-db'] : null
 
         }).then(() => {
             this.notif.success(
