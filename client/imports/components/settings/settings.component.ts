@@ -38,51 +38,23 @@ export class SettingComponent {
 
     changeSetting() {
         const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
-        if (this.settings['logging']) {
-            settingsObservable.update({
-                'logging': this.settings['logging']
-            }).then(() => {
-                this.notif.success(
-                    'Success',
-                    'Logging Changed'
-                );
-            }).catch((err) => {
-                this.notif.error(
-                    'Error',
-                    'Something went wrong, try again please.'
-                );
-            });
-        }
-        if (this.settings['power-monitor-interval']) {
-            settingsObservable.update({
-                'power-monitor-interval': this.settings['power-monitor-interval']
-            }).then(() => {
-                this.notif.success(
-                    'Success',
-                    'Power Monitor Interval Changed'
-                );
-            }).catch((err) => {
-                this.notif.error(
-                    'Error',
-                    'Something went wrong, try again please.'
-                );
-            });
-        }
-        if (this.settings['days-delete-db']) {
-            settingsObservable.update({
-                'days-delete-db': this.settings['days-delete-db']
-            }).then(() => {
-                this.notif.success(
-                    'Success',
-                    'Days to Delete DB Changed'
-                );
-            }).catch((err) => {
-                this.notif.error(
-                    'Error',
-                    'Something went wrong, try again please.'
-                );
-            });
-        }
+        settingsObservable.update({
+            'logging': !!this.settings['logging'],
+            'power-monitor-interval': this.settings['power-monitor-interval'] ?
+                this.settings['power-monitor-interval'] : 1000,
+            'days-delete-db': this.settings['days-delete-db'] ? this.settings['days-delete-db'] : 30
+
+        }).then(() => {
+            this.notif.success(
+                'Success',
+                'Setting Changed'
+            );
+        }).catch((err) => {
+            this.notif.error(
+                'Error',
+                'Something went wrong, try again please.'
+            );
+        });
     }
 
     deleteLogs() {
