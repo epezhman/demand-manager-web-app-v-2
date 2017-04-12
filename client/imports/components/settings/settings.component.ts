@@ -19,6 +19,7 @@ export class SettingComponent {
     settings: DeviceDetail;
     @Input() deviceId: string;
     logsObservable: FirebaseListObservable<DeviceDetail[]>;
+    logsSubscription: any;
 
     notifOptions = {
         timeOut: 1000,
@@ -122,9 +123,9 @@ export class SettingComponent {
 
     downloadLogs(): void {
         this.logsObservable = this.af.database.list(`/logging/${this.deviceId}/`);
-        this.logsObservable.subscribe((logs) => {
+        this.logsSubscription = this.logsObservable.subscribe((logs) => {
             new Angular2Csv(logs, `logs_${this.deviceId}_${moment().format()}`);
-            this.logsObservable = null;
+            this.logsSubscription.unsubscribe();
         });
     }
 }
