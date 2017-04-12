@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {InjectUser} from "angular2-meteor-accounts-ui";
 //noinspection TypeScriptCheckImport
 import template from "./app.component.html";
+import {AngularFire} from "angularfire2";
 
 @Component({
     moduleId: module.id,
@@ -12,7 +13,8 @@ import template from "./app.component.html";
 export class AppComponent {
     user: Meteor.User;
 
-    constructor() {
+    constructor(private af: AngularFire) {
+
     }
 
     logout() {

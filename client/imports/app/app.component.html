@@ -29,24 +29,32 @@
         <div class="navbar-default sidebar" role="navigation" *ngIf="user && isAdmin()">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav in" id="side-menu">
-
-                    <li>
-                        <a routerLink="/map" routerLinkActive="active"><i class="fa fa-map fa-fw"></i> Map</a>
+                    <li *ngIf="((af.auth | async)?.uid)">
+                        <a routerLink="/map" routerLinkActive="active">
+                            <i class="fa fa-map fa-fw"></i> Map
+                        </a>
+                    </li>
+                    <li *ngIf="((af.auth | async)?.uid)">
+                        <a routerLink="/devices" routerLinkActive="active">
+                            <i class="fa fa-laptop fa-fw"></i> Devices
+                        </a>
+                    </li>
+                    <li *ngIf="((af.auth | async)?.uid) && user && isStrictAdmin()">
+                        <a routerLink="/devices_all" routerLinkActive="active">
+                            <i class="fa fa-globe fa-fw"></i> Firebase All Devices
+                        </a>
                     </li>
                     <li>
-                        <a routerLink="/devices" routerLinkActive="active"><i class="fa fa-laptop fa-fw"></i>
-                            Devices</a>
+                        <a routerLink="/users" routerLinkActive="active">
+                            <i class="fa fa-users fa-fw"></i> User
+                        </a>
                     </li>
                     <li *ngIf="user && isStrictAdmin()">
-                        <a routerLink="/devices_all" routerLinkActive="active"><i
-                                class="fa fa-globe fa-fw"></i> Firebase All Devices</a>
-                    </li>
-                    <li>
-                        <a routerLink="/users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> User</a>
-                    </li>
-                    <li *ngIf="user && isStrictAdmin()">
-                        <a routerLink="/firebase" routerLinkActive="active"><i
-                                class="fa fa-fire-extinguisher fa-fw"></i> Firebase</a>
+                        <a routerLink="/firebase" routerLinkActive="active">
+                            <i class="fa fa-fire-extinguisher fa-fw"></i> Firebase
+                        </a>
+                        <div *ngIf="!((af.auth | async)?.uid)"
+                             class="alert alert-info" role="alert">Please also log in with Firebase</div>
                     </li>
                 </ul>
             </div>

@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "4.0.0",
     "@angular/platform-server": "4.0.0",
     "@angular/router": "4.0.0",
+    "angular2-csv": "0.2.1",
     "angular2-google-maps": "0.17.0",
     "angular2-meteor": "0.7.1",
     "angular2-meteor-accounts-ui": "1.0.0",

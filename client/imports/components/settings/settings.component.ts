@@ -1,9 +1,11 @@
 import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {DeviceDetail} from "../../../../both/interfaces/device.interface";
 import {NotificationsService} from "angular2-notifications";
-import {AngularFire} from "angularfire2";
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 //noinspection TypeScriptCheckImport
 import template from "./settings.component.html";
+import {Angular2Csv} from "angular2-csv/Angular2-csv";
+import * as  moment from "moment";
 
 
 @Component({
@@ -16,6 +18,7 @@ export class SettingComponent {
 
     settings: DeviceDetail;
     @Input() deviceId: string;
+    logsObservable: FirebaseListObservable<DeviceDetail[]>;
 
     notifOptions = {
         timeOut: 1000,
@@ -69,19 +72,29 @@ export class SettingComponent {
     }
 
     restartApp() {
-        const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
-        settingsObservable.update({
-            'restart': true
-        }).then(() => {
-            this.notif.success(
-                'Success',
-                'Restart Set'
-            );
-        }).catch((err) => {
-            this.notif.error(
-                'Error',
-                'Something went wrong, try again please.'
-            );
+        if (confirm('Are you Sure?')) {
+            const settingsObservable = this.af.database.object(`/settings/${this.deviceId}/`);
+            settingsObservable.update({
+                'restart': true
+            }).then(() => {
+                this.notif.success(
+                    'Success',
+                    'Restart Set'
+                );
+            }).catch((err) => {
+                this.notif.error(
+                    'Error',
+                    'Something went wrong, try again please.'
+                );
+            });
+        }
+    }
+
+    downloadLogs(): void {
+        this.logsObservable = this.af.database.list(`/logging/${this.deviceId}/`);
+        this.logsObservable.subscribe((logs) => {
+            new Angular2Csv(logs, `logs_${this.deviceId}_${moment().format()}`);
+            this.logsObservable = null;
         });
     }
 }
