@@ -35,7 +35,12 @@ export class MapComponent implements OnInit {
     ngOnInit(): void {
         this.devicesObservable = this.af.database.list('/online');
         this.devicesObservable.subscribe((devicesData) => {
-            this.devices = devicesData;
+            _.forEach(devicesData, (device) => {
+                if(device && device.l)
+                {
+                    this.devices.push(device)
+                }
+            });
             this.isLoading = false
         });
     }
