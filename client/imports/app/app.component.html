@@ -39,6 +39,11 @@
                             <i class="fa fa-laptop fa-fw"></i> Devices
                         </a>
                     </li>
+                    <li *ngIf="((af.auth | async)?.uid)">
+                        <a routerLink="/schedule_mock_up" routerLinkActive="active">
+                            <i class="fa fa-globe fa-plug"></i> Scheduler/Optimizer Mock Up
+                        </a>
+                    </li>
                     <li *ngIf="((af.auth | async)?.uid) && user && isStrictAdmin()">
                         <a routerLink="/devices_all" routerLinkActive="active">
                             <i class="fa fa-globe fa-fw"></i> Firebase All Devices

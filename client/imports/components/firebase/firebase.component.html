@@ -23,6 +23,22 @@
                     </div>
                     <button (click)="removeDevice()" class="btn btn-danger" [disabled]="notSubmitting">Remove</button>
                 </div>
+                <div class="panel-heading">
+                    Fix Power Consumption Profiles
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">Migrate old power consumption profiles.</div>
+                    <div class="form-group">
+                        <label for="profileDeviceId">Device Id</label>
+                        <input type="text" class="form-control" id="profileDeviceId" placeholder="Device Id"
+                               [(ngModel)]="profileDeviceId">
+                    </div>
+
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary" (click)="fixPowerProfile()" [disabled]="notSubmitting">Fix Power Profiles
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-6">

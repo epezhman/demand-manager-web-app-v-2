@@ -1,0 +1,66 @@
+<div style="height: 5px">
+    <div [hidden]="!isLoading" class="loader-line"></div>
+</div>
+<simple-notifications [options]="notifOptions"></simple-notifications>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Scheduler/Optimizer Mock Up</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Schedule Mock up
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label>Selected Latitude</label>
+                        <input type="number" class="form-control" placeholder="Selected Latitude"
+                               [(ngModel)]="selectedLat" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Selected Longitude</label>
+                        <input type="number" class="form-control" placeholder="Selected Longitude"
+                               [(ngModel)]="selectedLng" required>
+                        <p class="help-block">You can select latitude and longitude from map below</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Demand Cut in Watts</label>
+                        <input type="number" class="form-control" placeholder="Demand Cut in Watts"
+                               [(ngModel)]="demandCut" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration in Minutes</label>
+                        <input type="number" class="form-control" placeholder="Duration in Minutes"
+                               [(ngModel)]="durationMinutes" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" class="form-control" placeholder="Start Time"
+                               [(ngModel)]="startTime">
+                    </div>
+                    <p class="help-block">If you like to start immediately, leave start time empty</p>
+
+                    <button (click)="makeSchedule()" class="btn btn-primary">Start
+                        Schedule
+                    </button>
+                    <button (click)="sss()" class="btn btn-primary" style="padding-bottom: 10px;">se
+                    </button>
+
+                    <sebm-google-map [latitude]="latGarching" [longitude]="lngGarching" [zoom]="zoomGarching">
+                        <sebm-google-map-marker
+                                [latitude]="latGarching"
+                                [longitude]="lngGarching"
+                                [markerDraggable]=true
+                                (dragEnd)="locationChanged(m, $event)">
+
+                    </sebm-google-map>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

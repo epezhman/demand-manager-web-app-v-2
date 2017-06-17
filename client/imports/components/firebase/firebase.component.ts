@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {Device} from "../../../../both/interfaces/device.interface";
 //noinspection TypeScriptCheckImport
-import {series} from "async";
+import {eachLimit, eachSeries, series} from "async";
 import {NotificationsService} from "angular2-notifications";
 //noinspection TypeScriptCheckImport
 import template from "./firebase.component.html";
@@ -19,6 +19,7 @@ export class FirebaseComponent {
     notSubmitting: boolean = false;
 
     removeDeviceId: string;
+    profileDeviceId: string;
 
     notifOptions = {
         timeOut: 5000,
@@ -130,5 +131,50 @@ export class FirebaseComponent {
                 });
         }
     }
+
+    fixPowerProfile(): void {
+        this.profileDeviceId = _.trim(this.profileDeviceId);
+        if (confirm('Are you Sure?') && this.profileDeviceId) {
+            this.notSubmitting = true;
+            let profilesObservable = this.af.database.list(`/power/${this.profileDeviceId}`);
+            let profilesSub = profilesObservable.subscribe((profiles) => {
+                profilesSub.unsubscribe();
+                eachLimit(profiles, 50,(profile, profileCb) => {
+                    const profileObservable = this.af.database.object((`/power/${this.profileDeviceId}/${profile.$key}`));
+                    profileObservable.update({
+                        'power-diff-w': profile['estimated_power_consume_w'] - profile['estimated_power_save_w']
+                    }).then(() => {
+                        setTimeout(profileCb, 20);
+                        console.log('*');
+                    }).catch((err) => {
+                        this.notif.error(
+                            'Error',
+                            'Something went wrong.'
+                        );
+                        setTimeout(profileCb, 20);
+                    });
+                }, (err) => {
+                    if (err) {
+                        this.notif.error(
+                            'Error',
+                            'Something went wrong.'
+                        );
+                        this.notSubmitting = false;
+                        this.profileDeviceId = '';
+
+                    } else {
+                        this.notif.success(
+                            'Success',
+                            'Profile Migrated.'
+                        );
+                        this.notSubmitting = false;
+                        this.profileDeviceId = '';
+                    }
+                });
+
+            });
+        }
+    }
+
 
 }

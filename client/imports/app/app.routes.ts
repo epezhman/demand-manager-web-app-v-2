@@ -9,10 +9,13 @@ import {NotFoundComponent} from "../components/notFound/notfound.component";
 import {MapComponent} from "../components/map/map.component";
 import {UserComponent} from "../components/user/user.component";
 import {FirebaseComponent} from "../components/firebase/firebase.component";
+import {ScheduleMockUpComponent} from "../components/schedule/schedule-mockup.component";
+
 
 export const routes: Route[] = [
     {path: '', component: WelcomeComponent},
     {path: 'map', component: MapComponent, canActivate: ['authGuard']},
+    {path: 'schedule_mock_up', component: ScheduleMockUpComponent, canActivate: ['authGuard']},
     {path: 'devices', component: DeviceListComponent, canActivate: ['authGuard']},
     {path: 'devices_all', component: DeviceAllListComponent, canActivate: ['authGuard']},
     {path: 'users', component: UserComponent, canActivate: ['authGuard']},

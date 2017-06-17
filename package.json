@@ -34,6 +34,7 @@
     "chart.js": "2.5.0",
     "core-js": "2.4.1",
     "firebase": "3.7.3",
+    "geofire": "4.1.2",
     "geolib": "2.0.22",
     "lodash": "4.17.4",
     "meteor-node-stubs": "0.2.6",
