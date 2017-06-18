@@ -77,11 +77,13 @@
                         <dd> {{selectedDevices.length}}</dd>
                         <dt>Number of Particpating Laptops:</dt>
                         <dd> {{participatingDevices.length}}</dd>
+                        <dt>Time All Participants Joined:</dt>
+                        <dd> {{allJoinedTime}}</dd>
                         <dt>Generated Schedule:</dt>
                         <dd> {{generatedSchedule}}</dd>
                     </dl>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <h4>Selected Laptops</h4>
                             <table class="table table-striped">
                                 <thead>
@@ -98,19 +100,21 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <h4>Participating Laptops</h4>
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Laptop ID</th>
+                                    <th>Time Joined</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr *ngFor="let laptop of participatingDevices; let i = index">
                                     <td>{{i + 1}}</td>
                                     <td>{{laptop.$key}}</td>
+                                    <td>{{laptop['joined']| date:'medium'}}</td>
                                 </tr>
                                 </tbody>
                             </table>

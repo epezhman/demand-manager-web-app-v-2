@@ -145,7 +145,7 @@ export class FirebaseComponent {
                 eachLimit(profiles, 50, (profile, profileCb) => {
                     const profileObservable = this.af.database.object((`/power/${this.profileDeviceId}/${profile.$key}`));
                     profileObservable.update({
-                        'power-diff-w': profile['estimated_power_consume_w'] - profile['estimated_power_save_w']
+                        'power_diff_w': profile['estimated_power_consume_w'] - profile['estimated_power_save_w']
                     }).then(() => {
                         setTimeout(profileCb, 20);
                         this.cntr += 1;
