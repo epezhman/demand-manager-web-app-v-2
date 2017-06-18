@@ -21,6 +21,8 @@ export class FirebaseComponent {
     removeDeviceId: string;
     profileDeviceId: string;
 
+    cntr: number;
+
     notifOptions = {
         timeOut: 5000,
         position: ["bottom", "left"]
@@ -136,16 +138,17 @@ export class FirebaseComponent {
         this.profileDeviceId = _.trim(this.profileDeviceId);
         if (confirm('Are you Sure?') && this.profileDeviceId) {
             this.notSubmitting = true;
+            this.cntr = 0;
             let profilesObservable = this.af.database.list(`/power/${this.profileDeviceId}`);
             let profilesSub = profilesObservable.subscribe((profiles) => {
                 profilesSub.unsubscribe();
-                eachLimit(profiles, 50,(profile, profileCb) => {
+                eachLimit(profiles, 50, (profile, profileCb) => {
                     const profileObservable = this.af.database.object((`/power/${this.profileDeviceId}/${profile.$key}`));
                     profileObservable.update({
                         'power-diff-w': profile['estimated_power_consume_w'] - profile['estimated_power_save_w']
                     }).then(() => {
                         setTimeout(profileCb, 20);
-                        console.log('*');
+                        this.cntr += 1;
                     }).catch((err) => {
                         this.notif.error(
                             'Error',

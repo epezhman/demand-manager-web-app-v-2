@@ -10,13 +10,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Schedule Mock up
                 </div>
                 <div class="panel-body">
-
                     <div class="form-group">
                         <label>Selected Latitude</label>
                         <input type="number" class="form-control" placeholder="Selected Latitude"
@@ -48,8 +47,6 @@
                     <button (click)="makeSchedule()" class="btn btn-primary">Start
                         Schedule
                     </button>
-                    <button (click)="sss()" class="btn btn-primary" style="padding-bottom: 10px;">se
-                    </button>
 
                     <sebm-google-map [latitude]="latGarching" [longitude]="lngGarching" [zoom]="zoomGarching">
                         <sebm-google-map-marker
@@ -59,6 +56,66 @@
                                 (dragEnd)="locationChanged(m, $event)">
 
                     </sebm-google-map>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    Scheduling Stats
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>Scheduling Start Time:</dt>
+                        <dd> {{schedulingStartTime}}</dd>
+                        <dt>Scheduling Finished Time:</dt>
+                        <dd> {{schedulingFinishedTime}}</dd>
+                        <dt>Estimated Demand Cut in Watts:</dt>
+                        <dd> {{estimatedDemandCut}}</dd>
+                        <dt>Number of Selected Laptops:</dt>
+                        <dd> {{selectedDevices.length}}</dd>
+                        <dt>Number of Particpating Laptops:</dt>
+                        <dd> {{participatingDevices.length}}</dd>
+                        <dt>Generated Schedule:</dt>
+                        <dd> {{generatedSchedule}}</dd>
+                    </dl>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Selected Laptops</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Laptop ID</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let laptop of selectedDevices; let i = index">
+                                    <td>{{i + 1}}</td>
+                                    <td>{{laptop.$key}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Participating Laptops</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Laptop ID</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let laptop of participatingDevices; let i = index">
+                                    <td>{{i + 1}}</td>
+                                    <td>{{laptop.$key}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
