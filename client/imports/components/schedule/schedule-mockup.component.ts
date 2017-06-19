@@ -41,6 +41,8 @@ export class ScheduleMockUpComponent {
 
     isAllJoined: boolean = false;
 
+    turbineURL: string = "/images/turbine2.png";
+
     notifOptions = {
         timeOut: 1000,
         position: ["bottom", "left"]
