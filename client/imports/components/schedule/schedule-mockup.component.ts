@@ -183,11 +183,11 @@ export class ScheduleMockUpComponent {
                     this.generatedSchedule = schedule;
                     eachLimit(this.selectedDevices, 50, (device, dcb) => {
                         const scheduleObservable = this.af.database.object(`/schedule-period/${device.$key}/`);
-                        // scheduleObservable.update({
-                        //     'schedule': _.trim(schedule)
-                        // }).then(() => {
-                        //     dcb();
-                        // });
+                        scheduleObservable.update({
+                            'schedule': _.trim(schedule)
+                        }).then(() => {
+                            dcb();
+                        });
                     }, (err) => {
                         if (err) {
                             this.notif.error(
