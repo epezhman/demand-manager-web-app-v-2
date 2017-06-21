@@ -8,7 +8,7 @@ import * as  moment from "moment";
 //noinspection TypeScriptCheckImport
 import {eachLimit, eachSeries, series} from "async";
 import * as _ from "lodash";
-import * as firebase from 'firebase'
+import * as firebase from "firebase";
 
 @Component({
     moduleId: module.id,
@@ -78,6 +78,14 @@ export class ScheduleMockUpComponent {
         })
     }
 
+    experimentDemandCut(demand: string) {
+        this.experimentObservable.push({
+            'time-db': firebase.database.ServerValue.TIMESTAMP,
+            'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'demand-cut': demand
+        })
+    }
+
     makeSchedule() {
         if (confirm('Are you Sure?') && this.selectedLat && this.selectedLng && this.demandCut && this.durationMinutes) {
             this.isLoading = true;
@@ -139,6 +147,7 @@ export class ScheduleMockUpComponent {
                         );
                     }
                     this.estimatedDemandCut = Math.round((_.sum(powerDiffs) / powerDiffs.length) * 100) / 100;
+                    this.experimentDemandCut(this.estimatedDemandCut.toString());
                     let schedule = '';
                     if (this.startTime) {
                         let basTime = moment(`${moment().format('YYYY-MM-DD')} ${this.startTime}`);
