@@ -8,7 +8,7 @@ import * as  moment from "moment";
 //noinspection TypeScriptCheckImport
 import {eachLimit, eachSeries, series} from "async";
 import * as _ from "lodash";
-
+import * as firebase from 'firebase'
 
 @Component({
     moduleId: module.id,
@@ -18,6 +18,8 @@ import * as _ from "lodash";
 })
 export class ScheduleMockUpComponent {
     dmObservable: FirebaseListObservable<Device[]>;
+
+    experimentObservable: FirebaseListObservable<any[]>;
 
     isLoading: boolean = false;
 
@@ -51,11 +53,13 @@ export class ScheduleMockUpComponent {
     };
 
     constructor(private af: AngularFire, private notif: NotificationsService) {
+        this.experimentObservable = this.af.database.list('/experiment');
         this.dmObservable = this.af.database.list('/dm');
         this.dmObservable.subscribe((devicesData) => {
             this.participatingDevices = devicesData;
             if (!this.isAllJoined && this.participatingDevices.length === this.selectedDevices.length) {
                 this.isAllJoined = true;
+                this.experimentStatus('all-joined');
                 this.allJoinedTime = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
             }
         });
@@ -66,10 +70,19 @@ export class ScheduleMockUpComponent {
         this.selectedLng = $event.coords.lng;
     }
 
+    experimentStatus(status: string) {
+        this.experimentObservable.push({
+            'time-db': firebase.database.ServerValue.TIMESTAMP,
+            'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'experiment_status': status
+        })
+    }
+
     makeSchedule() {
         if (confirm('Are you Sure?') && this.selectedLat && this.selectedLng && this.demandCut && this.durationMinutes) {
             this.isLoading = true;
             this.isAllJoined = false;
+            this.experimentStatus('start');
             this.schedulingStartTime = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
             this.selectedDevices = [];
             this.participatingDevices = [];
@@ -156,6 +169,7 @@ export class ScheduleMockUpComponent {
                                 'Success',
                                 'Scheduling was successful.'
                             );
+                            this.experimentStatus('finish-scheduling');
                             this.schedulingFinishedTime = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
                             this.isLoading = false;
                         }
