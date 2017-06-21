@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b93002f0-579d-4154-968f-2d50372a6114" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/imports/components/schedule/schedule-mockup.component.ts" afterPath="$PROJECT_DIR$/client/imports/components/schedule/schedule-mockup.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="schedule-mockup.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/imports/components/schedule/schedule-mockup.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2060">
-              <caret line="194" column="2" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="2" />
+            <state relative-caret-position="422">
+              <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#205#261#0" expanded="true" />
@@ -563,12 +562,12 @@
       <workItem from="1497947443283" duration="90000" />
       <workItem from="1498033056762" duration="1673000" />
       <workItem from="1498035655424" duration="1586000" />
-      <workItem from="1498038454378" duration="540000" />
+      <workItem from="1498038454378" duration="1955000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137256000" />
+    <option name="totallyTimeSpent" value="138671000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1010,8 +1009,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/imports/components/schedule/schedule-mockup.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2060">
-          <caret line="194" column="2" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="2" />
+        <state relative-caret-position="422">
+          <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#205#261#0" expanded="true" />

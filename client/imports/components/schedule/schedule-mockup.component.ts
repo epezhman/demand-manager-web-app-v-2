@@ -57,9 +57,10 @@ export class ScheduleMockUpComponent {
         this.dmObservable = this.af.database.list('/dm');
         this.dmObservable.subscribe((devicesData) => {
             this.participatingDevices = devicesData;
-            if (!this.isAllJoined && this.participatingDevices.length === this.selectedDevices.length) {
+            if (this.selectedDevices.length > 0 && !this.isAllJoined && this.participatingDevices.length === this.selectedDevices.length) {
                 this.isAllJoined = true;
-                this.experimentStatus('all-joined');
+                if (this.schedulingStartTime)
+                    this.experimentStatus('all-joined');
                 this.allJoinedTime = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
             }
         });
@@ -74,6 +75,7 @@ export class ScheduleMockUpComponent {
         this.experimentObservable.push({
             'time-db': firebase.database.ServerValue.TIMESTAMP,
             'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'experiment-id': this.schedulingStartTime,
             'experiment_status': status
         })
     }
@@ -82,7 +84,26 @@ export class ScheduleMockUpComponent {
         this.experimentObservable.push({
             'time-db': firebase.database.ServerValue.TIMESTAMP,
             'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'experiment-id': this.schedulingStartTime,
             'demand-cut': demand
+        })
+    }
+
+    participatingLaptop(laptopID: string) {
+        this.experimentObservable.push({
+            'time-db': firebase.database.ServerValue.TIMESTAMP,
+            'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'experiment-id': this.schedulingStartTime,
+            'participating-laptop': laptopID
+        })
+    }
+
+    selectedLaptop(laptopID: string) {
+        this.experimentObservable.push({
+            'time-db': firebase.database.ServerValue.TIMESTAMP,
+            'time-mo': moment().format("YYYY-MM-DD HH:mm:ss:SSS"),
+            'experiment-id': this.schedulingStartTime,
+            'selected-laptop': laptopID
         })
     }
 
@@ -90,8 +111,8 @@ export class ScheduleMockUpComponent {
         if (confirm('Are you Sure?') && this.selectedLat && this.selectedLng && this.demandCut && this.durationMinutes) {
             this.isLoading = true;
             this.isAllJoined = false;
-            this.experimentStatus('start');
             this.schedulingStartTime = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
+            this.experimentStatus('start');
             this.selectedDevices = [];
             this.participatingDevices = [];
             this.schedulingFinishedTime = null;
@@ -111,6 +132,7 @@ export class ScheduleMockUpComponent {
                                 {latitude: device.l[0], longitude: device.l[1]}
                             ) < 1000) {
                             this.selectedDevices.push(device);
+                            this.selectedLaptop(device.$key)
                         }
                     }
                 });
@@ -161,11 +183,11 @@ export class ScheduleMockUpComponent {
                     this.generatedSchedule = schedule;
                     eachLimit(this.selectedDevices, 50, (device, dcb) => {
                         const scheduleObservable = this.af.database.object(`/schedule-period/${device.$key}/`);
-                        scheduleObservable.update({
-                            'schedule': _.trim(schedule)
-                        }).then(() => {
-                            dcb();
-                        });
+                        // scheduleObservable.update({
+                        //     'schedule': _.trim(schedule)
+                        // }).then(() => {
+                        //     dcb();
+                        // });
                     }, (err) => {
                         if (err) {
                             this.notif.error(
