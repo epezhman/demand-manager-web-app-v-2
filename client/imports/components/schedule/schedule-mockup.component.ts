@@ -21,6 +21,8 @@ export class ScheduleMockUpComponent {
 
     isLoading: boolean = false;
 
+    defaultPowerProfileCheck: number = 20;
+
     selectedDevices: Device[] = [];
     participatingDevices: Device[] = [];
     estimatedDemandCut: number;
@@ -91,7 +93,10 @@ export class ScheduleMockUpComponent {
                         }
                     }
                 });
-                let minutes = Array.from(Array(this.durationMinutes).keys());
+                let minutes = [];
+                for (let i = 0; i <= this.defaultPowerProfileCheck; i++) {
+                    minutes.push((this.defaultPowerProfileCheck * -1) + i);
+                }
                 eachLimit(minutes, 50, (minute, mcb) => {
                     let newTime = moment().add(minute, 'm');
                     eachLimit(this.selectedDevices, 50, (device, dcb) => {
